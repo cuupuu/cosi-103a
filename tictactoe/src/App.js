@@ -32,6 +32,11 @@ function Square({ value }) {
 
 export default function Board() {
   const [squares, setSquares] = useState(Array(9).fill(null));
+  function handleClick() {
+    const nextSquares = squares.slice();
+    nextSquares[0] = "X";
+    setSquares(nextSquares);
+  }
   return (
     <>
       <div className="board-row">
