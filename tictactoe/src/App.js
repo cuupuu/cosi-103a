@@ -3,7 +3,7 @@ import './App.css';
 
 import { useState } from 'react';
 
-function Square({ value, onSquareClick }) {
+function Square({value, onSquareClick}) {
   return (
     <button className="square" onClick={onSquareClick}>
       {value}
@@ -16,22 +16,30 @@ export default function Board() {
   const [squares, setSquares] = useState(Array(9).fill(null));
 
   function handleClick(i) {
-    if (squares[i] || calculateWinner(squares)) {
+    if (calculateWinner(squares) || squares[i]) {
       return;
     }
-    const winner = calculateWinner(squares);
-    let status;
-    if (winner) {
-      status = "Winner: " + winner;
+    const nextSquares = squares.slice();
+    if (xIsNext) {
+      nextSquares[i] = 'X';
     } else {
-      status = "Next player: " + (xIsNext ? "X" : "O");
+      nextSquares[i] = 'O';
     }
     setSquares(nextSquares);
     setXIsNext(!xIsNext);
   }
 
+  const winner = calculateWinner(squares);
+  let status;
+  if (winner) {
+    status = 'Winner: ' + winner;
+  } else {
+    status = 'Next player: ' + (xIsNext ? 'X' : 'O');
+  }
+
   return (
     <>
+      <div className="status">{status}</div>
       <div className="board-row">
         <Square value={squares[0]} onSquareClick={() => handleClick(0)} />
         <Square value={squares[1]} onSquareClick={() => handleClick(1)} />
