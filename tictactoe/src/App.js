@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 
+
 // function App() {
 //   return (
 //     <div className="App">
@@ -23,6 +24,7 @@ import './App.css';
 // }
 
 // export default App;
+
 
 import { useState } from 'react';
 
@@ -101,4 +103,3 @@ function calculateWinner(squares) {
   }
   return null;
 }
-
