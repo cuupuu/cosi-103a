@@ -1,0 +1,119 @@
+<html lang="en">
+<head>
+    <title>recipe page</title>
+    <link rel="icon" href="/Users/xingyuting/Desktop/Brandeis/24spring/fundmentals of software engineering/6710068.png" type="image/x-icon">
+    <style>
+
+        .recipe-details {
+            display: none;
+            padding: 15px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Mcdonals</h1>
+    <div class="recipe-container">
+        <!-- Recipe 1 -->
+        <div class="recipe">
+            <div class="recipe-summary" onclick="toggleDetails('recipe1')">
+                <h2>Recipe 1</h2>
+                <span>Click to view details</span>
+            </div>
+            <div id="recipe1" class="recipe-details">
+                <!-- Recipe 1 Details -->
+                <p>Details for Recipe 1...</p>
+            </div>
+        </div>
+
+         <!-- Recipe 2 -->
+         <div class="recipe">
+            <div class="recipe-summary" onclick="toggleDetails('recipe2')">
+                <h2>Recipe 2</h2>
+                <span>Click to view details</span>
+            </div>
+            <div id="recipe2" class="recipe-details">
+                <!-- Recipe 2 Details -->
+                <p>Details for Recipe 2...</p>
+            </div>
+        </div>
+         <!-- Recipe 3 -->
+         <div class="recipe">
+            <div class="recipe-summary" onclick="toggleDetails('recipe3')">
+                <h2>Recipe 3</h2>
+                <span>Click to view details</span>
+            </div>
+            <div id="recipe3" class="recipe-details">
+                <!-- Recipe 3 Details -->
+                <p>Details for Recipe 3...</p>
+            </div>
+        </div>
+         <!-- Recipe 4 -->
+         <div class="recipe">
+            <div class="recipe-summary" onclick="toggleDetails('recipe4')">
+                <h2>Recipe 4</h2>
+                <span>Click to view details</span>
+            </div>
+            <div id="recipe4" class="recipe-details">
+                <!-- Recipe 4 Details -->
+                <p>Details for Recipe 4...</p>
+            </div>
+        </div>
+         <!-- Recipe 5 -->
+         <div class="recipe">
+            <div class="recipe-summary" onclick="toggleDetails('recipe5')">
+                <h2>Recipe 5</h2>
+                <span>Click to view details</span>
+            </div>
+            <div id="recipe5" class="recipe-details">
+                <!-- Recipe 5 Details -->
+                <p>Details for Recipe 5...</p>
+            </div>
+        </div>
+         <!-- Recipe 6 -->
+         <div class="recipe">
+            <div class="recipe-summary" onclick="toggleDetails('recipe6')">
+                <h2>Recipe 6</h2>
+                <span>Click to view details</span>
+            </div>
+            <div id="recipe6" class="recipe-details">
+                <!-- Recipe 6 Details -->
+                <p>Details for Recipe 6...</p>
+            </div>
+        </div>
+         <!-- Recipe 7 -->
+         <div class="recipe">
+            <div class="recipe-summary" onclick="toggleDetails('recipe7')">
+                <h2>Recipe 7</h2>
+                <span>Click to view details</span>
+            </div>
+            <div id="recipe7" class="recipe-details">
+                <!-- Recipe 7 Details -->
+                <p>Details for Recipe 7...</p>
+            </div>
+        </div>
+         <!-- Recipe 8 -->
+         <div class="recipe">
+            <div class="recipe-summary" onclick="toggleDetails('recipe8')">
+                <h2>Recipe 8</h2>
+                <span>Click to view details</span>
+            </div>
+            <div id="recipe8" class="recipe-details">
+                <!-- Recipe 8 Details -->
+                <p>Details for Recipe 8...</p>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        function toggleDetails(recipeId) {
+            var details = document.getElementById(recipeId);
+            if (details.style.display === 'none' || details.style.display === '') {
+                details.style.display = 'block';
+            } else {
+                details.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
