@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="mcdonalds.png" type="image/png">
+    <title>McDonald's App</title>
+</head>
+<body>
+    <header>
+        <h1>McDonald's Menu</h1>
+    </header>
+    <main>
+        <div class="recipe-list">
+            <!-- Recipe 1 -->
+            <div class="recipe">
+                <h2>Spicy McCrispy™</h2>
+                <img src="SpicyCrispyChicken.jpeg" alt="Spicy Crispy Chicken Image">
+                <p class="description">Spicy Pepper Sauce topping the southern style fried chicken fillet on a toasted potato roll, crispy, juicy, tender and hot.</p>
+                <button class="view-details-btn" onclick="showDetails(1)">View Details</button>
+                <div class="details" id="details1">
+                    <h3>Ingredients:</h3>
+                    <ul>
+                        <li>4 boneless, skinless chicken breasts</li>
+                        <li>1 cup buttermilk</li>
+                        <li>1 cup all-purpose flour</li>
+                        <li>1 teaspoon paprika</li>
+                        <li>1 teaspoon garlic powder</li>
+                        <li>1 teaspoon cayenne pepper</li>
+                        <li>Salt and pepper to taste</li>
+                        <li>Vegetable oil for frying</li>
+                    </ul>
+                    <h3>Instructions:</h3>
+                    <p>1. Marinate chicken breasts in buttermilk for at least 1 hour.</p>
+                    <p>2. In a bowl, combine flour, paprika, garlic powder, cayenne pepper, salt, and pepper.</p>
+                    <p>3. Dredge marinated chicken in the flour mixture, ensuring even coating.</p>
+                    <p>4. Heat vegetable oil in a pan and fry chicken until golden brown and cooked through.</p>
+                    <p>5. Drain on paper towels and serve hot.</p>
+                </div>
+            </div>
+
+            <!-- Recipe 2 -->
+            <div class="recipe">
+                <h2>Big Mac®</h2>
+                <img src="Header_BigMac.jpeg" alt="Header Big Mac Image">
+                <p class="description">A 100% beef burger with a taste like no other.</p>
+                <button class="view-details-btn" onclick="showDetails(2)">View Details</button>
+                <div class="details" id="details2">
+                    <h3>Ingredients:</h3>
+                    <ul>
+                        <li>2 beef patties</li>
+                        <li>Special sauce</li>
+                        <li>Shredded lettuce</li>
+                        <li>Sliced American cheese</li>
+                        <li>Pickles</li>
+                        <li>Chopped onions</li>
+                        <li>Sesame seed bun</li>
+                    </ul>
+                    <h3>Instructions:</h3>
+                    <p>1. Cook the beef patties until fully cooked.</p>
+                    <p>2. Toast the sesame seed bun.</p>
+                    <p>3. Assemble the burger by placing special sauce on the bottom bun, followed by lettuce, a beef patty, cheese, pickles, onions, another beef patty, and the top bun.</p>
+                    <p>4. Serve and enjoy your delicious Big Mac!</p>
+                </div>
+            </div>
+
+            <!-- Recipe 3 -->
+            <div class="recipe">
+                <h2>Chicken McNuggets®</h2>
+                <img src="McNuggets.jpeg" alt="McNuggets Image">
+                <p class="description">Made with all white meat chicken and no artificial colors, flavors, or preservatives.</p>
+                <button class="view-details-btn" onclick="showDetails(3)">View Details</button>
+                <div class="details" id="details3">
+                    <h3>Ingredients:</h3>
+                    <ul>
+                        <li>Chicken breast, cut into bite-sized pieces</li>
+                        <li>Flour</li>
+                        <li>Egg wash (beaten eggs)</li>
+                        <li>Breadcrumbs</li>
+                        <li>Salt and pepper to taste</li>
+                    </ul>
+                    <h3>Instructions:</h3>
+                    <p>1. Preheat the oven to 375°F (190°C).</p>
+                    <p>2. Season the chicken pieces with salt and pepper.</p>
+                    <p>3. Dredge each chicken piece in flour, then dip in egg wash, and coat with breadcrumbs.</p>
+                    <p>4. Place the coated chicken pieces on a baking sheet.</p>
+                    <p>5. Bake in the preheated oven for 15-20 minutes or until golden brown and cooked through.</p>
+                    <p>6. Serve hot with your favorite dipping sauce and enjoy the deliciousness of Chicken McNuggets!</p>
+                </div>
+            </div>
+            <!-- Recipe 4 -->
+            <div class="recipe">
+                <h2>Quarter Pounder with Cheese</h2>
+                <img src="QuarterPounderwithCheese.jpeg" alt="Quarter Pounder with Cheese Image">
+                <p class="description">A ¼ lb of 100% fresh beef that’s hot, deliciously juicy.</p>
+                <button class="view-details-btn" onclick="showDetails(4)">View Details</button>
+                <div class="details" id="details4">
+                    <h3>Ingredients:</h3>
+                    <ul>
+                        <li>1/4 lb ground beef patty</li>
+                        <li>Slice of cheddar cheese</li>
+                        <li>Fresh lettuce leaves</li>
+                        <li>Sliced tomatoes</li>
+                        <li>Pickle slices</li>
+                        <li>Chopped onions</li>
+                        <li>Ketchup</li>
+                        <li>Mustard</li>
+                        <li>Sesame seed bun</li>
+                    </ul>
+                    <h3>Instructions:</h3>
+                    <p>1. Grill the beef patty to perfection.</p>
+                    <p>2. Add a slice of cheddar cheese on top of the patty and let it melt.</p>
+                    <p>3. Toast the sesame seed bun.</p>
+                    <p>4. Assemble the burger with lettuce, tomatoes, pickles, onions, ketchup, and mustard.</p>
+                    <p>5. Place the cheesy beef patty on the bottom half of the bun and cover with the top half.</p>
+                    <p>6. Indulge in the savory goodness of the Quarter Pounder with Cheese!</p>            
+                </div>
+            </div>
+
+            <!-- Recipe 5 -->
+            <div class="recipe">
+                <h2>Iced Coffee</h2>
+                <img src="MediumIcedCoffee.jpeg" alt="Iced Coffee Image">
+                <p class="description">Made with 100% Arabica beans, cream, and your choice of flavored coffee syrup—Caramel, Hazelnut, French Vanilla, and Sugar-Free French Vanilla.</p>
+                <button class="view-details-btn" onclick="showDetails(5)">View Details</button>
+                <div class="details" id="details5">
+                    <h3>Ingredients:</h3>
+                    <ul>
+                        <li>Freshly brewed coffee</li>
+                        <li>Ice cubes</li>
+                        <li>Sweetener (optional)</li>
+                        <li>Cream or milk (optional)</li>
+                    </ul>
+                    <h3>Instructions:</h3>
+                    <p>1. Brew a fresh pot of coffee and let it cool to room temperature.</p>
+                    <p>2. Fill a glass with ice cubes.</p>
+                    <p>3. Pour the cooled coffee over the ice cubes.</p>
+                    <p>4. Add sweetener to taste (if desired).</p>
+                    <p>5. Optionally, add cream or milk for a creamy texture.</p>
+                    <p>6. Stir well and enjoy the invigorating taste of our Iced Coffee!</p>
+                </div>
+            </div>
+
+            <!-- Recipe 6 -->
+            <div class="recipe">
+                <h2>Egg McMuffin®</h2>
+                <img src="EggMcMuffin.jpeg" alt="Egg McMuffin Image">
+                <p class="description">Breakfast cravings with freshly cracked Grade A egg placed on a toasted English Muffin.</p>
+                <button class="view-details-btn" onclick="showDetails(6)">View Details</button>
+                <div class="details" id="details6">
+                    <h3>Ingredients:</h3>
+                    <ul>
+                        <li>English muffins, split and toasted</li>
+                        <li>Large eggs</li>
+                        <li>Canadian bacon slices</li>
+                        <li>American cheese slices</li>
+                        <li>Butter</li>
+                        <li>Salt and pepper to taste</li>
+                    </ul>
+                    <h3>Instructions:</h3>
+                    <p>1. Heat a non-stick skillet over medium heat and melt a bit of butter.</p>
+                    <p>2. Crack an egg into the skillet and cook until the whites are set but the yolk is still runny. Season with salt and pepper.</p>
+                    <p>3. While the egg is cooking, toast the English muffin halves.</p>
+                    <p>4. Place a slice of Canadian bacon on the bottom half of each English muffin.</p>
+                    <p>5. Once the egg is cooked, place it on top of the Canadian bacon.</p>
+                    <p>6. Add a slice of American cheese on top of the egg.</p>
+                    <p>7. Top with the other half of the English muffin, and your Egg McMuffin is ready to enjoy!</p>   
+                </div>
+            </div>
+
+            <!-- Recipe 7 -->
+            <div class="recipe">
+                <h2>Sausage Burrito</h2>
+                <img src="SausageBurrito.jpeg" alt="Sausage Burrito Image">
+                <p class="description">It's wrapped in a soft tortilla, making it the perfect grab and go breakfast.</p>
+                <button class="view-details-btn" onclick="showDetails(7)">View Details</button>
+                <div class="details" id="details7">
+                    <h3>Ingredients:</h3>
+                    <ul>
+                        <li>Sausage links, cooked and sliced</li>
+                        <li>Scrambled eggs</li>
+                        <li>Shredded cheese</li>
+                        <li>Salsa</li>
+                        <li>Flour tortillas</li>
+                    </ul>
+                    <h3>Instructions:</h3>
+                    <p>1. Cook and slice the sausage links.</p>
+                    <p>2. Scramble the eggs in a pan until cooked through.</p>
+                    <p>3. Warm the flour tortillas in a microwave or on a skillet.</p>
+                    <p>4. Assemble the burrito by placing scrambled eggs, sausage slices, shredded cheese, and salsa in the center of each tortilla.</p>
+                    <p>5. Fold the sides of the tortilla inward and then roll it up tightly.</p>
+                    <p>6. Serve warm and savor the deliciousness of our Sausage Burrito!</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
