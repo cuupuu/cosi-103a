@@ -169,6 +169,7 @@ const App = () => {
                 <div className="recipe-list">
                     {recipes.map((recipe, index) => (
                         <Recipe
+                            key={index}
                             index={index}
                             title={recipe.title}
                             description={recipe.description}
