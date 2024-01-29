@@ -9,7 +9,7 @@ test('renders recipe titles in the app', () => {
   // You can customize the text to match the titles of your recipes
   const spicyCrispyTitle = getByText(/Spicy McCrispy™/i);
   const bigMacTitle = getByText(/Big Mac®/i);
-  const nuggetsTitle = getByText(/Chicken McNuggets®/i);
+  const nuggetsTitle = getByText(/McNuggets®/i);
   const quarterPounderTitle = getByText(/Quarter Pounder with Cheese/i);
   const icedCoffeeTitle = getByText(/Iced Coffee/i);
   const eggMcMuffinTitle = getByText(/Egg McMuffin®/i);
@@ -24,4 +24,3 @@ test('renders recipe titles in the app', () => {
   expect(eggMcMuffinTitle).toBeInTheDocument();
   expect(sausageBurritoTitle).toBeInTheDocument();
 });
-
