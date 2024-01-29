@@ -31,8 +31,5 @@ const Recipe = ({ index, title, description, ingredients, instructions, image,is
     );
 }
 export default Recipe;
-};
-
-export default Recipe;
 
 
