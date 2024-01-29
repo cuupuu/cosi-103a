@@ -5,7 +5,7 @@ import App from './App';
 describe('App Component', () => {
     test('renders App component', () => {
         render(<App />);
-        expect(screen.getByText('Recipe App')).toBeInTheDocument();
+        expect(screen.getByText("McDonald's App")).toBeInTheDocument();
     });
 
     test('shows recipe details when a recipe is clicked', () => {
