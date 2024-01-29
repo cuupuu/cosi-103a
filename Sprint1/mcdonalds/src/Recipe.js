@@ -14,7 +14,7 @@ const Recipe = ({ index, title, description, ingredients, instructions, image,is
                 View Details
             </button>
             {isOpen && (
-                <div>
+                <div >
                     <h3>Ingredients:</h3>
                     <ul>
                         {ingredients.map((ingredient, index) => (
