@@ -164,7 +164,7 @@ const App = () => {
     return (
         <div className="App">
             <header>
-                <h1>Recipe App</h1>
+                <h1>McDonald's App</h1>
             </header>
             <main>
                 <div className="recipe-list">
