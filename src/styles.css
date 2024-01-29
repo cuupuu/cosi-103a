@@ -1,0 +1,143 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+main {
+    padding: 1rem;
+}
+
+
+  
+
+.recipe-list {
+    display: flex;
+    flex-wrap: wrap;
+    /* gap: 1rem;     */
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.recipe {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--container-color);
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(3, 74, 40, 0.15);
+    padding: 0.75rem;
+    /* border: 1px solid #ddd;
+    padding: 1rem;
+    width: 300px; */
+
+}
+
+.recipe img {
+    max-width: 300px;
+    align-self: center;
+    height: auto;
+}
+
+.details {
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.view-details-btn {
+    cursor: pointer;
+    background-color: #ef6e11;
+    color: white;
+    border: none;
+    padding: 8px 16px !important; /* Adjust padding for a smaller button */
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center; /* Align items vertically at the center */
+    justify-content: center; /* Center content horizontally */
+    margin-top: 10px;
+    /* cursor: pointer;
+    background-color: #ef6e11;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 0.5rem 0 0.5rem 0;
+    display: flex;
+    margin-top: 10px; */
+}
+
+.view-details-btn:hover {
+    background-color: #f5b663;
+}
+
+/* .details.show {
+    display: block;
+  } */ 
+
+
+
+
+  /* body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+main {
+    padding: 1rem;
+}
+
+.recipe-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.recipe {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    width: 300px;
+}
+
+.recipe img {
+    max-width: 100%;
+    height: auto;
+}
+
+.details {
+    display: none;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.view-details-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.view-details-btn:hover {
+    background-color: #0056b3;
+}
+ */
