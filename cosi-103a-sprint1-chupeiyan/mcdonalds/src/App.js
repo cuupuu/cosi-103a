@@ -1,7 +1,9 @@
 // src/App.js
 import React from 'react';
 import Recipe from './Recipe';
+import { Accordion, Card, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Assuming you're using Bootstrap for styling
+
 
 const App = () => {
   const recipes = [
@@ -160,24 +162,28 @@ const App = () => {
   ];
 
   return (
-    <div className="App">
-      <header>
-        <h1>Recipe App</h1>
-      </header>
-      <main>
-        <div className="recipe-list">
-          {recipes.map((recipe, index) => (
-            <Recipe
-              key={index}
-              title={recipe.title}
-              description={recipe.description}
-              ingredients={recipe.ingredients}
-              instructions={recipe.instructions}
-              image={recipe.image}
-            />
-          ))}
-        </div>
-      </main>
+    <div className="container mt-5">
+      <h1 className="mb-4">Recipe App</h1>
+      <Accordion defaultActiveKey="0">
+        {recipes.map((recipe, index) => (
+          <Card key={index}>
+            <Accordion.Toggle as={Card.Header} eventKey={index.toString()}>
+              {recipe.title}
+            </Accordion.Toggle>
+            <Accordion.Collapse eventKey={index.toString()}>
+              <Card.Body>
+                <Recipe
+                  title={recipe.title}
+                  description={recipe.description}
+                  ingredients={recipe.ingredients}
+                  instructions={recipe.instructions}
+                  image={recipe.image}
+                />
+              </Card.Body>
+            </Accordion.Collapse>
+          </Card>
+        ))}
+      </Accordion>
     </div>
   );
 };
