@@ -1,25 +1,36 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import Recipe from './Recipe';
 
-describe('Recipe component', () => {
-  const recipeData = {
+const mockRecipe = {
+    index: 0,
     title: 'Test Recipe',
-    description: 'This is a test recipe description.',
+    description: 'Test Description',
     ingredients: ['Ingredient 1', 'Ingredient 2'],
-    instructions: ['Instruction 1', 'Instruction 2'],
-    image: 'test-image.jpg',
-  };
+    instructions: ['Step 1', 'Step 2'],
+    image: 'test.jpg',
+    isOpen: false,
+    onToggle: jest.fn()
+};
 
-  it('renders recipe card with initial details hidden', () => {
-    const { getByText, queryByText } = render(<Recipe {...recipeData} />);
+describe('Recipe Component', () => {
+    test('renders Recipe component', () => {
+        render(<Recipe {...mockRecipe} />);
+        expect(screen.getByText('Test Recipe')).toBeInTheDocument();
+        expect(screen.getByText('Test Description')).toBeInTheDocument();
+    });
 
-    // Check if the title and description are rendered
-    expect(getByText('Test Recipe')).toBeInTheDocument();
-    expect(getByText('This is a test recipe description.')).toBeInTheDocument();
+    test('calls onToggle when the button is clicked', () => {
+        render(<Recipe {...mockRecipe} />);
+        const button = screen.getByText('View Details');
+        fireEvent.click(button);
+        expect(mockRecipe.onToggle).toHaveBeenCalledWith(mockRecipe.index);
+    });
 
-    // Check if ingredients and instructions are not initially visible
-    expect(queryByText('Ingredient 1')).not.toBeInTheDocument();
-    expect(queryByText('Instruction 1')).not.toBeInTheDocument();
-  });
+    test('displays ingredients and instructions when isOpen is true', () => {
+        const updatedProps = {...mockRecipe, isOpen: true};
+        render(<Recipe {...updatedProps} />);
+        expect(screen.getByText('Ingredients:')).toBeInTheDocument();
+        expect(screen.getByText('Step 1')).toBeInTheDocument();
+    });
 });
