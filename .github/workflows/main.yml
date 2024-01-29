@@ -13,4 +13,6 @@ jobs:
         with:
           node-version: '14'
       - run: npm install
+        working-directory: ./Sprint1/mcdonalds
       - run: npm test
+        working-directory: ./Sprint1/mcdonalds
