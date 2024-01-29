@@ -1,0 +1,102 @@
+/* style.css */
+
+/* Reset some default styles */
+body, h1, h2, p, ul {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f8f8;
+  }
+  
+  header {
+    background-color: #e74c3c; /* McDonald's red */
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 32px;
+  }
+  
+  main {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+  }
+  
+  /* Recipe styles */
+  .recipe {
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .recipe:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .recipe img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  h2 {
+    color: #e74c3c; /* McDonald's red */
+  }
+  
+  .description {
+    color: #555;
+  }
+  
+  .view-details-btn {
+    background-color: #e74c3c; /* McDonald's red */
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .view-details-btn:hover {
+    background-color: #c0392b; /* Darker red on hover */
+  }
+  
+  .details {
+    display: none;
+    margin-top: 15px;
+  }
+  
+  .details h3 {
+    color: #e74c3c; /* McDonald's red */
+  }
+  
+  .details ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .details li {
+    margin-bottom: 5px;
+  }
+  
+  /* Button styles */
+  button {
+    background-color: #e74c3c; /* McDonald's red */
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #c0392b; /* Darker red on hover */
+  }
+  
