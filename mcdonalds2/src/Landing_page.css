@@ -1,0 +1,83 @@
+.App {
+    text-align: center;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #fff;
+    color: #333;
+}
+
+header {
+    background-color: #000000; 
+    color: white;
+    padding: 20px 0;
+    margin-bottom: 20px;  
+   text-align: center; /* Centers text for inline or inline-block elements */
+
+}
+
+h1 {
+    margin: 0;
+    font-size: 2em;
+    color: white;
+}
+
+.recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns by default */
+    gap: 20px;
+    padding: 20px;
+}
+
+
+.recipe-card {
+    height: 300px;
+    width: 200px; 
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #ccc; 
+    border-radius: 10px; 
+}
+
+.recipe-card:hover {
+    transform: scale(1.05); /* Slight scale on hover */
+}
+
+.recipe-card img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto; 
+}
+
+
+.recipe-card-content {
+    padding: 10px;
+}
+
+.recipe-card-title {
+    font-size: 1.2em; /* Adjusted size */
+    color: #DA291C; /* McDonald's red */
+    margin-bottom: 10px;
+}
+
+.recipe-card-description {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.view-details-btn {
+    background-color: #DA291C; /* McDonald's red */
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+.view-details-btn:hover {
+    background-color: #DA291C;
+}
