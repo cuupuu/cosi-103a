@@ -1,7 +1,5 @@
 import React, {useState} from 'react';
 import Recipe from './GotoRecipe';
-import {Route, Routes} from 'react-router-dom';
-import './Landing_Page.css';
 
 
 

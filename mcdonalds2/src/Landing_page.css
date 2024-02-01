@@ -29,12 +29,17 @@ h1 {
 
 
 .recipe-card {
-    height: 300px;
-    width: 200px; 
-    margin: 10px;
+    height: 400px;
+    width: 280px;
+    margin: 20px;
     padding: 20px;
-    border: 1px solid #ccc; 
-    border-radius: 10px; 
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center; /* Center content horizontally */
+    position: relative;
 }
 
 .recipe-card:hover {
@@ -52,6 +57,7 @@ h1 {
 
 .recipe-card-content {
     padding: 10px;
+    margin: auto;
 }
 
 .recipe-card-title {
@@ -67,15 +73,15 @@ h1 {
 }
 
 .view-details-btn {
-    background-color: #DA291C; /* McDonald's red */
+    background-color: #DA291C;
     color: white;
-    padding: 8px 16px;
+    padding: 10px 20px; /* Adjust padding to make the button shorter */
+    width: 45%;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
     font-size: 0.9em;
-    margin-bottom: 10px;
 }
 
 .view-details-btn:hover {
