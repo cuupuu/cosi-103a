@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import './Landing_page.css';
 
 const Recipe = ({ index, title, description, image }) => {
     const navigate = useNavigate();

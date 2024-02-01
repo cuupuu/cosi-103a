@@ -6,7 +6,7 @@
 }
 
 .recipe-image {
-    width: 50%; /* Adjust the width as needed */
+    width: 40%; /* Adjust the width as needed */
     height: auto; /* Maintain aspect ratio */
 }
 
@@ -17,6 +17,9 @@
 .view-details-btn {
     /* Your button styling */
     margin-bottom: 10px;
+    width: 30%;
+    font-size: 1em;
+    font-weight: bold;
 }
 
 /* Additional responsive adjustments if needed */

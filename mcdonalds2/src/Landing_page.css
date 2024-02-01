@@ -82,6 +82,7 @@ h1 {
     cursor: pointer;
     transition: background-color 0.3s ease;
     font-size: 0.9em;
+    font-weight: bold;
 }
 
 .view-details-btn:hover {

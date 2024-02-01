@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import './recipe.css';
 
 export function RecipePage({ recipes }) {
     const { id } = useParams();
@@ -14,7 +15,8 @@ export function RecipePage({ recipes }) {
                 <img src={"/"+recipe.image} alt={recipe.title} className="recipe-image" />
                 <div className="recipe-content">
                     <h1>{recipe.title}</h1>
-                    <h3>{recipe.description}</h3>       
+                    <h3>{recipe.description}</h3> 
+                    <hr ></hr>      
                     <h3>Ingredients:</h3>
                     <ol>
                         {recipe.ingredients.map((ingredient, index) => (
