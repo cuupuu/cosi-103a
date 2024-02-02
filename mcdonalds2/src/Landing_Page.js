@@ -164,8 +164,9 @@ export const Home = () => {
     ];
 
     return (
-        <div className="App">
+        <div>
             <header>
+                <img src={"mcdicon.png"} alt="McDonald's Logo" className="header-img" />
                 <h1>McDonald's Menu</h1>
             </header>
             <main>
