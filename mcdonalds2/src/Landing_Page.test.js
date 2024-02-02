@@ -1,18 +1,32 @@
 // Landing_Page.test.js
 import React from 'react';
+import { MemoryRouter } from 'react-router-dom';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import { Home } from './Landing_Page'; // Assuming your Home component is exported as Home in Landing_Page.js
+import { Home } from './Landing_Page';
 
 describe('Landing Page Component', () => {
+  const mockRecipes = [
+    { id: '1', title: 'Recipe 1', description: 'Description 1', image: 'image1.jpg' },
+    { id: '2', title: 'Recipe 2', description: 'Description 2', image: 'image2.jpg' },
+  ];
+
   test('renders McDonald\'s Menu header', () => {
-    render(<Home />);
+    render(
+      <MemoryRouter>
+        <Home recipes={mockRecipes} />
+      </MemoryRouter>
+    );
     const headerElement = screen.getByText(/McDonald's Menu/i);
     expect(headerElement).toBeInTheDocument();
   });
 
   test('renders recipe cards with titles and descriptions', () => {
-    render(<Home />);
+    render(
+      <MemoryRouter>
+        <Home recipes={mockRecipes} />
+      </MemoryRouter>
+    );
     const recipeTitles = screen.getAllByRole('heading', { level: 2 });
     const recipeDescriptions = screen.getAllByTestId('recipe-description');
 
@@ -22,3 +36,4 @@ describe('Landing Page Component', () => {
 
   // Add more test cases as needed
 });
+

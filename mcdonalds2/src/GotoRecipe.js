@@ -11,7 +11,7 @@ const Recipe = ({ index, title, description, image }) => {
 
     return (
         <div>
-            <div class='recipe-card'>
+            <div className='recipe-card'>
             <h2>{title}</h2>
             <img src={image} alt={`Picture of ${title}`} />
             <p className="description">{description}</p>

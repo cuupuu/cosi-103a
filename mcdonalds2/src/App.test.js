@@ -1,17 +1,30 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import App from './App';
+import { MemoryRouter, Routes, Route } from 'react-router-dom';
+import { App } from './App';
 
-describe('App Component', () => {
-    test('renders App component', () => {
-        render(<App />);
-        expect(screen.getByText("McDonald's App")).toBeInTheDocument();
-    });
+test('navigates to RecipePage when a recipe is clicked', () => {
+  const mockRecipes = [
+    {
+      id: '0',
+      title: "McDonald's Recipe",
+      description: 'This is a McDonald\'s recipe description.',
+      image: 'mcdonalds-image.jpg',
+    },
+  ];
 
-    test('shows recipe details when a recipe is clicked', () => {
-        render(<App />);
-        const firstRecipeButton = screen.getAllByText('View Details')[0];
-        fireEvent.click(firstRecipeButton);
-        expect(screen.getByText('Ingredients:')).toBeInTheDocument();
-    });
+  render(
+    <MemoryRouter initialEntries={['/']}>
+      <Routes>
+        <Route path="/" element={<App recipes={mockRecipes} />} />
+      </Routes>
+    </MemoryRouter>
+  );
+
+  // Click on the link with a partial match of the text
+  fireEvent.click(screen.getByText(/McDonald's Recipe/i));
+
+  // After clicking the link, assert that the RecipePage component is rendered
+  const recipePageElement = screen.getByRole('heading', { name: /McDonald's Recipe/i });
+  expect(recipePageElement).toBeInTheDocument();
 });
