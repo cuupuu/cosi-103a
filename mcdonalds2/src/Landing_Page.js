@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Recipe from './GotoRecipe';
 import {Route, Routes} from 'react-router-dom';
-import './Landing_Page.css';
+import './Landing_page.css';
 
 
 
@@ -14,23 +14,6 @@ export const Home = () => {
         {
             title: 'Spicy McCrispy™',
             description: "Spicy Pepper Sauce topping the southern style fried chicken fillet on a toasted potato roll, crispy, juicy, tender and hot.",
-            ingredients: [
-                '4 boneless, skinless chicken breasts',
-                '1 cup buttermilk',
-                '1 cup all-purpose flour',
-                '1 teaspoon paprika',
-                '1 teaspoon garlic powder',
-                '1 teaspoon cayenne pepper',
-                'Salt and pepper to taste',
-                'Vegetable oil for frying',
-            ],
-            instructions: [
-                'Marinate chicken breasts in buttermilk for at least 1 hour.',
-                'In a bowl, combine flour, paprika, garlic powder, cayenne pepper, salt, and pepper.',
-                'Dredge marinated chicken in the flour mixture, ensuring even coating.',
-                'Heat vegetable oil in a pan and fry chicken until golden brown and cooked through.',
-                'Drain on paper towels and serve hot.',
-            ],
             image: 'SpicyCrispyChicken.jpeg',
         },
         {
