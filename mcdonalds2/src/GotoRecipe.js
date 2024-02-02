@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import './Landing_page.css';
 
 const Recipe = ({ index, title, description, image }) => {
     const navigate = useNavigate();
@@ -10,14 +11,13 @@ const Recipe = ({ index, title, description, image }) => {
     };
 
     return (
-        <div>
-            <div class='recipe-card'>
+        <div class='recipe-card'>
             <h2>{title}</h2>
             <img src={image} alt={`Picture of ${title}`} />
             <p className="description">{description}</p>
-            </div>
-             <button className="view-details-btn" onClick={() => goToRecipePage(index)}>View Details</button>
-       </div>
+            <button className="view-details-btn" onClick={() => goToRecipePage(index)}>View Details</button>
+        </div>
+        
 
     );
 }

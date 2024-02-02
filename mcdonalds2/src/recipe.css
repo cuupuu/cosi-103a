@@ -1,12 +1,16 @@
+.recipe-title{
+    color: black;
+    font-family: Speedee,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif;
+}
 .recipe-layout {
     display: flex;
     align-items: start; /* Aligns items to the start of the container */
     gap: 20px; /* Adds space between image and content */
-    padding: 20px; /* Adds padding around the layout */
+    margin: 40px;
 }
 
 .recipe-image {
-    width: 50%; /* Adjust the width as needed */
+    width: 40%; /* Adjust the width as needed */
     height: auto; /* Maintain aspect ratio */
 }
 
@@ -14,9 +18,21 @@
     width: 50%; /* Adjust the width as needed */
 }
 
-.view-details-btn {
-    /* Your button styling */
-    margin-bottom: 10px;
+.backhome-btn {
+    background-color: #DA291C;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+    cursor: pointer;
+    width: 30%;
+    height: 100%;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin: 20px 0px;
+}
+.backhome-btn:hover {
+    background-color: rgb(255, 85, 0);
 }
 
 /* Additional responsive adjustments if needed */
