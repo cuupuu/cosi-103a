@@ -5,7 +5,7 @@ on:
     branches: 
       - main
 jobs:
-  test-sprint1:
+  test-sprint2:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -13,6 +13,6 @@ jobs:
         with:
           node-version: '14'
       - run: npm install
-        working-directory: ./Sprint1-cp/mcdonalds2
+        working-directory: ./mcdonalds2
       - run: npm test
-        working-directory: ./Sprint1-cp/mcdonalds2
+        working-directory: ./mcdonalds2
