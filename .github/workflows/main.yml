@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} is testing sprint 2
 on: 
   pull_request:
     branches: 
-      - main
+      - S2
 jobs:
   test-sprint2:
     runs-on: ubuntu-latest
