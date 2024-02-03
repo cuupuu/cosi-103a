@@ -12,7 +12,7 @@ Yenyi Li
 
 In the project directory, you can run:
 
-### 'npm install'
+### `npm install`
 Install node_modules before testing
 
 
