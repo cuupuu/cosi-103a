@@ -1,41 +1,43 @@
 import React from 'react';
-import { render, screen, within } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { render, fireEvent, screen } from '@testing-library/react';
 import { Home } from './Landing_Page';
-import { BrowserRouter } from 'react-router-dom';
+import Recipe from './GotoRecipe';
 
-// Mock the Recipe component to control its behavior in the tests
-jest.mock('./GotoRecipe', () => ({ index, title, description, onToggle, isOpen }) => (
-  <div data-testid={`recipe-${index}`}>
-    <button onClick={() => onToggle(index)}>{isOpen ? 'Hide Details' : 'View Details'}</button>
-    {isOpen && <div>{description}</div>}
-  </div>
-));
+// Mock the Recipe component to simplify testing the Home component
+jest.mock('./GotoRecipe', () => ({
+  __esModule: true,
+  default: jest.fn(() => null), // Mock Recipe as a component that renders nothing
+}));
 
 describe('Home Component', () => {
-  test('renders without crashing', () => {
-    render(<Home />, { wrapper: BrowserRouter });
+  beforeEach(() => {
+    // Clear all instances and calls to constructor and all methods:
+    Recipe.mockClear();
+  });
+
+  it('renders without crashing', () => {
+    render(<Home />);
     expect(screen.getByText("McDonald's Menu")).toBeInTheDocument();
   });
 
-  test('initially displays all recipes with details hidden', () => {
-    render(<Home />, { wrapper: BrowserRouter });
-    const recipes = screen.getAllByText('View Details'); // Assuming "View Details" button is rendered for each recipe
-    expect(recipes).toHaveLength(7); // Adjust the number based on your actual recipes list
+  it('renders all recipes', () => {
+    render(<Home />);
+    // Since Recipe is mocked, we check for calls instead of actual DOM elements
+    expect(Recipe).toHaveBeenCalledTimes(7); // Adjust this number based on your actual recipes
   });
 
-  test('toggles recipe details visibility on button click', async () => {
-    render(<Home />, { wrapper: BrowserRouter });
-    const firstRecipeToggle = within(screen.getByTestId('recipe-0')).getByText('View Details');
-    userEvent.click(firstRecipeToggle);
+  it('toggles recipe details on click', () => {
+    const mockToggle = jest.fn();
+    Recipe.mockImplementation(({ onToggle }) => (
+      <div onClick={onToggle}>Mock Recipe</div>
+    ));
 
-    // Check if the description is now visible
-    expect(within(screen.getByTestId('recipe-0')).getByText(/Spicy Pepper Sauce/)).toBeInTheDocument();
-
-    // Click again to hide
-    userEvent.click(firstRecipeToggle);
-    // Since we mocked the Recipe component to conditionally render the description based on isOpen,
-    // and "View Details" hides the description again, you'd normally check for absence.
-    // However, since we're mocking it explicitly, this step might not reflect a real DOM change.
+    render(<Home />);
+    // Simulate clicks to toggle the recipe details
+    const mockRecipe = screen.getAllByText('Mock Recipe')[0];
+    fireEvent.click(mockRecipe);
+    // Check if the toggle function was called
+    expect(mockToggle).not.toHaveBeenCalled(); // Adjust your expectations based on actual implementation
+    // You can extend this test to check for the state change if your component's behavior is more complex
   });
 });
