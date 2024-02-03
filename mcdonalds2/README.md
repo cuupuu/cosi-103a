@@ -7,6 +7,7 @@ Ruixue Gou
 Yuting Xing
 Chupei Yan        
 Yenyi Li   
+
 ## Available Scripts
 
 In the project directory, you can run:
