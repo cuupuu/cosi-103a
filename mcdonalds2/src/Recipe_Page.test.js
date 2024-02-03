@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
-import { RecipePage } from './Recipe_Page';
+import { Recipe_Page } from './Recipe_Page';
 
 // Mocking useParams
 jest.mock('react-router-dom', () => ({
