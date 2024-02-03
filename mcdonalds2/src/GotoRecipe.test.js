@@ -25,6 +25,7 @@ describe('Recipe Component', () => {
   };
 
   test('renders recipe information', () => {
+    // Render the component with the test data
     render(
       <BrowserRouter>
         <Recipe {...recipeProps} />
