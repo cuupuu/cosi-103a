@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} is testing sprint 2
 on: 
   pull_request:
     branches: 
-      - main
+      - S2
 jobs:
   test-sprint2:
     runs-on: ubuntu-latest
@@ -12,7 +12,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '14'
-      - run: npm install
+      - run: npm install --save-dev @testing-library/user-event @testing-library/dom 
         working-directory: mcdonalds2
       - run: npm test
         working-directory: mcdonalds2
