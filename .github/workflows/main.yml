@@ -15,4 +15,4 @@ jobs:
       # - run: npm install
       #   working-directory: /mcdonalds2
       - run: npm test
-        working-directory: /mcdonalds2
+        working-directory: 2-ruixue/mcdonalds2
