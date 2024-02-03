@@ -12,7 +12,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '14'
-      - run: npm install
-        working-directory: ./2-ruixue/mcdonalds2
+      # - run: npm install
+      #   working-directory: /mcdonalds2
       - run: npm test
-        working-directory: ./2-ruixue/mcdonalds2
+        working-directory: /mcdonalds2
