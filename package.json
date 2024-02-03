@@ -1,6 +1,0 @@
-{
-  "devDependencies": {
-    "@testing-library/dom": "^9.3.4",
-    "@babel/plugin-proposal-private-property-in-object"
-  }
-}
