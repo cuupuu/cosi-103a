@@ -1,48 +1,52 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { BrowserRouter, useNavigate } from 'react-router-dom';
 import Recipe from './GotoRecipe';
-import { BrowserRouter } from 'react-router-dom';
 
-// Mock useNavigate
+// Directly mock useNavigate
 const mockNavigate = jest.fn();
+
 jest.mock('react-router-dom', () => ({
-  ...jest.requireActual('react-router-dom'), // use actual for all non-hook parts
-  useNavigate: () => mockNavigate, // return the mock function here
+  ...jest.requireActual('react-router-dom'), // Preserve all the original exports
+  useNavigate: () => mockNavigate, // Override useNavigate with the mock
 }));
 
-// In your beforeEach or individual tests
-beforeEach(() => {
-  mockNavigate.mockReset(); // Now this should work as expected
-});
-
 describe('Recipe Component', () => {
-  const mockNavigate = jest.requireMock('react-router-dom').useNavigate;
-
   beforeEach(() => {
-    // Reset mockNavigate before each test
-    mockNavigate.mockReset();
+    mockNavigate.mockClear(); // Clear mock's history before each test
   });
 
   const recipeProps = {
-    index: 0,
-    title: 'Spicy McCrispy™',
-    description: 'A deliciously spicy chicken sandwich.',
-    image: '/images/spicy-crispy-chicken.jpeg'
+    index: 1,
+    title: 'Test Recipe',
+    description: 'This is a test description',
+    image: 'test-image.jpg'
   };
 
   test('renders recipe information', () => {
-    render(<Recipe {...recipeProps} />, { wrapper: BrowserRouter });
+    render(
+      <BrowserRouter>
+        <Recipe {...recipeProps} />
+      </BrowserRouter>
+    );
 
     expect(screen.getByText(recipeProps.title)).toBeInTheDocument();
     expect(screen.getByText(recipeProps.description)).toBeInTheDocument();
-    expect(screen.getByAltText(`Picture of ${recipeProps.title}`)).toHaveAttribute('src', recipeProps.image);
+    expect(screen.getByRole('img', { name: `Picture of ${recipeProps.title}` })).toHaveAttribute('src', recipeProps.image);
   });
 
-  test('navigates to recipe page on button click', async () => {
-    render(<Recipe {...recipeProps} />, { wrapper: BrowserRouter });
+  test('navigates to recipe page on button click', () => {
+    render(
+      <BrowserRouter>
+        <Recipe {...recipeProps} />
+      </BrowserRouter>
+    );
 
-    userEvent.click(screen.getByText('View Details'));
+    // Simulate user clicking the "View Details" button
+    userEvent.click(screen.getByRole('button', { name: 'View Details' }));
+
+    // Check if navigate function was called with the correct path
     expect(mockNavigate).toHaveBeenCalledWith(`/recipe/${recipeProps.index}`);
   });
 });
