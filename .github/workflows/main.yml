@@ -12,7 +12,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '14'
-      - run: npm install
+      - run: npm install --save-dev @testing-library/user-event @testing-library/dom 
         working-directory: mcdonalds2
       - run: npm test
         working-directory: mcdonalds2
