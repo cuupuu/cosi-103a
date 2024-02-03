@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Landing_page.css';
+import './Landing_Page.css';
 
 const Recipe = ({ index, title, description, image }) => {
     const navigate = useNavigate();
@@ -11,7 +11,7 @@ const Recipe = ({ index, title, description, image }) => {
     };
 
     return (
-        <div class='recipe-card'>
+        <div className='recipe-card'>
             <h2>{title}</h2>
             <img src={image} alt={`Picture of ${title}`} />
             <p className="description">{description}</p>
