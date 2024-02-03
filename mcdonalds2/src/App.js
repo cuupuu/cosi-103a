@@ -1,7 +1,7 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Route, Routes} from 'react-router-dom';
 import {Home} from './Landing_Page';
-import {RecipePage} from './Recipe_page';
+import {RecipePage} from './Recipe_Page';
 
 const recipes = [
     {
