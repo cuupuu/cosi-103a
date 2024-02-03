@@ -14,5 +14,7 @@ jobs:
           node-version: '14'
       - run: npm install
         working-directory: mcdonalds2
+        - run: npm start
+        working-directory: mcdonalds2
       - run: npm test
         working-directory: mcdonalds2
