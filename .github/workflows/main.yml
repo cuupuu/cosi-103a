@@ -1,20 +1,20 @@
-# name: Test-Sprint2
-# run-name: ${{ github.actor }} is testing sprint 2
-# on: 
-#   pull_request:
-#     branches: 
-#       - main
-# jobs:
-#   test-sprint2:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v4
-#       - uses: actions/setup-node@v3
-#         with:
-#           node-version: '14'
-#       - run: npm install
-#         working-directory: mcdonalds2
-#         - run: npm start
-#         working-directory: mcdonalds2
-#       - run: npm test
-#         working-directory: mcdonalds2
+name: Test-Sprint2
+run-name: ${{ github.actor }} is testing sprint 2
+on: 
+  pull_request:
+    branches: 
+      - main
+jobs:
+  test-sprint2:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+      - run: npm install
+        working-directory: mcdonalds2
+        - run: npm start
+        working-directory: mcdonalds2
+      - run: npm test
+        working-directory: mcdonalds2
