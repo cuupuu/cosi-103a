@@ -41,3 +41,5 @@ export function RecipePage({ recipes }) {
         </div>
     );
 }
+
+export default RecipePage;
