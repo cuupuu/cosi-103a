@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM   from 'react-dom/client';
 import App from './App.js';
 import {BrowserRouter} from 'react-router-dom';
-import './Landing_page.css';
-import './recipe.css';
+import './Landing_Page.css';
+import './Recipe_Page.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

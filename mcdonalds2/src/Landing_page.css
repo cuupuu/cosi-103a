@@ -27,8 +27,9 @@ p{
 .recipe-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3 columns by default */
-    gap: 10px;
+    gap: 20px;
     padding: 20px;
+    margin: 10px;
 }
 
 
