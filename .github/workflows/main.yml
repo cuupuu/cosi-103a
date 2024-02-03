@@ -18,5 +18,3 @@ jobs:
       #   working-directory: mcdonalds2
       - run: npm test
         working-directory: mcdonalds2
-
-
