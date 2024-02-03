@@ -1,7 +1,7 @@
 header {
     background-color: #000000; 
     color: white;
-    padding: 20px 0;
+    padding: 20px;
     margin-bottom: 20px; 
     display: flex;
     gap: 40px;
@@ -26,8 +26,8 @@ p{
 
 .recipe-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columns by default */
-    gap: 20px;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns by default */
+    gap: 10px;
     padding: 20px;
 }
 
