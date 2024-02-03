@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # Author    
 Ruixue Gou  
-Yuting Xing
+Yuting Xing  
 Chupei Yan        
 Yenyi Li   
 
