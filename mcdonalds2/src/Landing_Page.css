@@ -1,13 +1,15 @@
 header {
     background-color: #000000; 
     color: white;
-    padding: 20px;
     margin-bottom: 20px; 
     display: flex;
     gap: 40px;
     align-items: center;
     justify-content: center;
     text-align: center; /* Centers text for inline or inline-block elements */
+    width: 1700px;
+    height: 100px;
+    
 }
 
 .header-img{
@@ -20,22 +22,28 @@ h1 {
     color:  white;
 }
 
+h2 {
+    text-align: center;
+}
+
 p{
-    font-size: 16px;
+    font-size: 17px;
+    text-align: justify;
 }
 
 .recipe-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 20px;
-    padding: 20px;
-    margin: 10px;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 40px 20px;
+    margin: 40px 0px;
+    justify-items: center;
+    width: 1700px;
 }
 
 
 .recipe-card {
-    height: 350px;
-    width: 320px;
+    width:300px;
+    height: 380px;
     margin: 0px;
     padding: 20px;
     border: 1px solid   rgba(77, 73, 73, 0.704);
@@ -52,8 +60,8 @@ p{
 }
 
 .recipe-card img {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     object-fit: cover;
     display: block;
     margin: 0 auto; 
