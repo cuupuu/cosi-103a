@@ -1,7 +1,7 @@
 import React from 'react';
 import {Route, Routes} from 'react-router-dom';
-import {Home} from './Landing_Page';
-import {RecipePage} from './Recipe_Page';
+import {Home} from './LandingPage';
+import {RecipePage} from './RecipePage';
 import recipes from './Recipe';
 
 function App() {
