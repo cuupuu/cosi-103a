@@ -11,13 +11,8 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-<<<<<<< HEAD
-          node-version: '21'
-=======
           node-version: '20'
->>>>>>> f10eec56330dc84585a125ccf3aa43bfadc6f3d1
-      - run: npm install
-      - run: npm install --save-dev @babel/plugin-proposal-private-property-in-object 
+      - run: npm ci
         working-directory: mcdonalds2
       # - run: npm start
       #   working-directory: mcdonalds2
