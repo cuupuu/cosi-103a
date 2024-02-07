@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 export function RecipePage({ recipes }) {
     const { id } = useParams();
     const recipe = recipes[id];
+    console.log(recipe.image);
     return (
         <div>       
             <header>
