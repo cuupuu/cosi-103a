@@ -1,4 +1,6 @@
 import React from 'react';
+import Navbar from './Navbar'; // Import the Navbar component
+
 
 const peopleData = [
     {
@@ -34,6 +36,7 @@ const peopleData = [
 function Contact() {
     return (
         <div className="contact">
+            <Navbar />
             <h1>Contact</h1>
             <div className="boxes">
                 {peopleData.map((person, index) => (
