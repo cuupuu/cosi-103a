@@ -1,17 +1,21 @@
 # It uses node:18-alpine as the base image for the frontend React.js application
-FROM node:18
+# Use an appropriate base image for Node.js, such as node:latest
+FROM node:latest
 
 # Creating the working directory named `app`
 WORKDIR /app
 
-# Copying all the tools and dependencies in the package.json file to the working directory `app`
-COPY package*.json/ /app/
+# Copying package.json and package-lock.json to the working directory `app`
+COPY package*.json /app/
 
-#Installing all the tools and dependencies in the container
+# Installing dependencies
 RUN npm install
+
+# Copying the rest of the application code
 COPY . .
 
+# Exposing port 3000
 EXPOSE 3000
 
-#Command to start the Docker container for the frontend React.js application
+# Command to start the Docker container for the frontend React.js application
 CMD ["npm", "start"]
