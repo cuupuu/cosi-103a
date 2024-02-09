@@ -1,6 +1,5 @@
-# It uses node:18-alpine as the base image for the frontend React.js application
-# Use an appropriate base image for Node.js, such as node:latest
-FROM node:latest
+# Use a base image compatible with linux/amd64
+FROM --platform=linux/amd64 ubuntu:latest
 
 # Creating the working directory named `app`
 WORKDIR /app
