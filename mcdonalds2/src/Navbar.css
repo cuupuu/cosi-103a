@@ -1,0 +1,78 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f8f8;
+}
+
+.navbar .links a {
+    margin-right: 15px;
+    text-decoration: none;
+    color: black;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* .dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: gray;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+} */
+
+.dropdown-content {
+    display: none; /* Hide the dropdown content by default */
+    position: absolute; /* Position the dropdown content absolutely */
+    background-color: #f9f9f9; /* Change the background color */
+    min-width: 160px; /* Set a minimum width */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Add a box shadow */
+    z-index: 1; /* Increase the z-index */
+}
+
+/* Style the dropdown links */
+.dropdown-content a {
+    color: black; /* Change the text color */
+    padding: 12px 16px; /* Add some padding */
+    text-decoration: none; /* Remove the text decoration */
+    display: block; /* Display the links as blocks */
+}
+
+/* Change the background color of the dropdown links when you hover over them */
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Show the dropdown content when you hover over the dropdown button */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropbtn {
+    background-color: whitesmoke; /* Change the background color */
+    color: black; /* Change the text color */
+    padding: 16px; /* Add some padding */
+    font-size: 16px; /* Increase the font size */
+    border: none; /* Remove the border */
+    cursor: pointer; /* Change the cursor to a pointer when hovering over the button */
+}
+
+/* Change the background color of the button when you hover over it */
+.dropbtn:hover {
+    background-color: #da291c;
+    color: white;
+}
