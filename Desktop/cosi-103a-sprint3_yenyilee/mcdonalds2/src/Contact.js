@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from './Navbar'; // Import the Navbar component
-
+import './Contact.css';
 
 const peopleData = [
     {
@@ -12,7 +12,7 @@ const peopleData = [
     {
         name: "Yenyi Lee",
         title: "Infrastructure Engineer",
-        image: "path/to/bob.jpg",
+        image: "anny.JPG",
         description: "Anny Lee is currently pursuing her master’s degree in Computer Science at Brandeis University. With a background in linguistics, her academic focus centers on computational linguistics. In her spare time, she enjoys learning languages, singing, and playing badminton."
             },
     {   
@@ -33,6 +33,10 @@ function Contact() {
     return (
         <div className="contact">
             <Navbar />
+            <header>
+                <img src={"mcdicon.png"} alt="McDonald's Logo" className="header-img" />
+                <h1>McDonald's Team</h1>
+            </header>
             <h1>Contact</h1>
             <div className="boxes">
                 {peopleData.map((person, index) => (
