@@ -1,5 +1,5 @@
-name: Test-Sprint2
-run-name: ${{ github.actor }} is testing sprint 2
+name: Test-Sprint3
+run-name: ${{ github.actor }} is testing sprint 3
 on: 
   pull_request:
     branches: 
