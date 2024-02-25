@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar'; // Import the Navbar component
+import GroceryList from './GroceryList'; // Import the GroceryList component
 
 export function RecipePage({ recipes }) {
     const { id } = useParams();
@@ -41,6 +42,7 @@ export function RecipePage({ recipes }) {
                     </Link>
                 </div>
             </div>
+            <GroceryList /> {/* Render the GroceryList component */}
         </div>
     );
 }
