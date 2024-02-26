@@ -1,20 +1,21 @@
 import React from 'react';
-import {Route, Routes} from 'react-router-dom';
-import {Home} from './LandingPage';
-import {RecipePage} from './RecipePage';
+import { Routes, Route } from 'react-router-dom';
+import Layout from './Layout'; // Import the Layout component
+import { Home } from './LandingPage';
+import { RecipePage } from './RecipePage';
 import recipes from './Recipe';
 import Contact from './Contact';
 
 function App() {
     return (
         <Routes>
-            <Route path="/" element={<Home/>} />
-            <Route path="/recipe/:id" element={<RecipePage recipes={recipes} />} />   
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/" element={<Layout><Home/></Layout>} /> {/* Wrap Home component with Layout */}
+            <Route path="/recipe/:id" element={<Layout><RecipePage recipes={recipes}/></Layout>} /> {/* Wrap RecipePage component with Layout */}
+            <Route path="/contact" element={<Layout><Contact/></Layout>} /> {/* Wrap Contact component with Layout */}
         </Routes>
-
     )
 }
 
 export default App;
+
 

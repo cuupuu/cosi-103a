@@ -1,8 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import Navbar from './Navbar'; // Import the Navbar component
-import GroceryList from './GroceryList'; // Import the GroceryList component
 
 export function RecipePage({ recipes }) {
     const { id } = useParams();
@@ -10,7 +8,6 @@ export function RecipePage({ recipes }) {
     console.log(recipe.image);
     return (
         <div>       
-            <Navbar /> {/* Add the Navbar component */}
             <header>
                 <img src={"/mcdicon.png"} alt="McDonald's Logo" className="header-img" />
                 <h1>McDonald's Recipe</h1>
@@ -20,7 +17,7 @@ export function RecipePage({ recipes }) {
                 <div className="recipe-content">
                     <h1 className='recipe-title'>{recipe.title}</h1>
                     <h3>{recipe.description}</h3> 
-                    <hr ></hr>      
+                    <hr ></hr>              
                     <h3>Ingredients</h3>
                     <ol>
                         <p>
@@ -42,7 +39,6 @@ export function RecipePage({ recipes }) {
                     </Link>
                 </div>
             </div>
-            <GroceryList /> {/* Render the GroceryList component */}
         </div>
     );
 }

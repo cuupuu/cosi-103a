@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import recipes from './Recipe';
-import Navbar from './Navbar'; // Import the Navbar component
+
 
 export const Home = () => {
     const navigate = useNavigate();
@@ -11,7 +11,6 @@ export const Home = () => {
     };
     return (
         <div>
-             <Navbar /> {/* Add the Navbar component */}
             <header>
                 <img src={"mcdicon.png"} alt="McDonald's Logo" className="header-img" />
                 <h1>McDonald's Menu</h1>
@@ -29,8 +28,5 @@ export const Home = () => {
                 </div>
             </main>
         </div>
-       
-        
-
     );
 }

@@ -1,5 +1,4 @@
 import React from 'react';
-import Navbar from './Navbar'; // Import the Navbar component
 import './Contact.css';
 
 const peopleData = [
@@ -31,8 +30,7 @@ const peopleData = [
 
 function Contact() {
     return (
-        <div className="contact">
-            <Navbar />
+        <div>
             <header>
                 <img src={"mcdicon.png"} alt="McDonald's Logo" className="header-img" />
                 <h1>McDonald's Team</h1>
