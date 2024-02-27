@@ -49,7 +49,7 @@ jobs:
       - name: Build and deploy Container App
         uses: azure/container-apps-deploy-action@v1
         with:
-          appSourcePath: ${{ github.workspace }}/src
+          appSourcePath:  D:\acosi-103acosi-103a\src
           acrName: cosi103a
           containerAppName: mcdonalds
           resourceGroup: myResourceGroup
