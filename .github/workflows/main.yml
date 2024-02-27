@@ -47,7 +47,7 @@ jobs:
       - name: Build and deploy Container App
         uses: azure/container-apps-deploy-action@v1
         with:
-          appSourcePath:  /home/runner/work/cosi-103a/src
+          appSourcePath:  /home/runner/work/cosi-103a
           acrName: cosi103a
           containerAppName: mcdonalds
           resourceGroup: myResourceGroup
