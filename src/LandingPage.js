@@ -1,7 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import recipes from './Recipe';
-import Navbar from './Navbar';
 import Header from './Header';
 
 

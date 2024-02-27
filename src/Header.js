@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import Navbar from './Navbar';
 import './Header.css';
-import GroceryList from './GroceryList';
 
 const Header = ({ title, src= "mcdicon.png"}) => {
     const [showGroceryList, setShowGroceryList] = useState(false);
