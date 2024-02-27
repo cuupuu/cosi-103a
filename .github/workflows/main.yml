@@ -49,6 +49,6 @@ jobs:
         with:
           appSourcePath: ${{ github.workspace }}
           acrName: cosi103a
-          containerAppName: mcdonalds
+          containerAppName: sprint4
           resourceGroup: myResourceGroup
-          imageToDeploy: sprint4
+          dockerfilePath: dockerfile
