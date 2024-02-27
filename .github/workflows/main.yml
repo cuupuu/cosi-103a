@@ -51,3 +51,4 @@ jobs:
           acrName: cosi103a
           containerAppName: mcdonalds
           resourceGroup: myResourceGroup
+          imageToDeploy: sprint4
