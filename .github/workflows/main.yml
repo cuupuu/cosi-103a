@@ -1,0 +1,44 @@
+name: Test-Sprint4
+run-name: ${{ github.actor }} is testing sprint 4
+
+on: 
+  pull_request:
+    branches: 
+      - main
+
+
+jobs:
+  test-sprint4:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Install dependencies
+        run: npm install
+        working-directory: src
+      
+      - name: Run tests
+        run: npm test
+        working-directory: src
+
+      # Use the azure/login@v1 action to connect to Azure with the created secrets
+      - uses: actions/checkout@v3
+      - name: Log into Azure
+        uses: azure/login@v1
+        with:
+            creds: ${{ secrets.AZURE_CREDENTIALS }}
+      
+      - name: Build and deploy Container App
+        uses: azure/container-apps-deploy-action@v1
+        with:
+          appSourcePath: ${{ github.workspace }}/src
+          acrName: cosi103a
+          containerAppName: mcdonalds
+          resourceGroup: myResourceGroup
