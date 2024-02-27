@@ -6,10 +6,19 @@ on:
     branches: 
       - main
 
+permissions:
+  id-token: write
+  contents: read
+
 
 jobs:
   test-sprint4:
     runs-on: ubuntu-latest
+    
+  deploy-infra:
+    name: Deploy Infra
+    runs-on: windows-latest
+    environment: prd
     
     steps:
       - name: Checkout code
@@ -29,7 +38,6 @@ jobs:
         working-directory: src
 
       # Use the azure/login@v1 action to connect to Azure with the created secrets
-      - uses: actions/checkout@v3
       - name: Log into Azure
         uses: azure/login@v1
         with:
