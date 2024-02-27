@@ -1,5 +1,5 @@
-name: Test-Sprint3
-run-name: ${{ github.actor }} is testing sprint 3
+name: Test-Sprint4
+run-name: ${{ github.actor }} is testing sprint 4
 on: 
   pull_request:
     branches: 
@@ -13,8 +13,6 @@ jobs:
         with:
           node-version: '20'
       - run: npm install
-        working-directory: mcdonalds2
-      # - run: npm start
-      #   working-directory: mcdonalds2
+        working-directory: src
       - run: npm test
-        working-directory: mcdonalds2
+        working-directory: src
