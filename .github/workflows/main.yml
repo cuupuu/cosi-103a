@@ -14,12 +14,7 @@ permissions:
 jobs:
   test-sprint4:
     runs-on: ubuntu-latest
-    
-  deploy-infra:
-    name: Deploy Infra
-    runs-on: windows-latest
-    environment: prd
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -37,6 +32,12 @@ jobs:
         run: npm test
         working-directory: src
 
+  deploy-infra:
+    name: Deploy Infra
+    runs-on: windows-latest
+    environment: prd
+
+    steps:
       # Use the azure/login@v1 action to connect to Azure with the created secrets
       - name: Log into Azure
         uses: azure/login@v1
