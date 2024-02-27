@@ -51,4 +51,3 @@ jobs:
           acrName: cosi103a
           containerAppName: sprint4
           resourceGroup: myResourceGroup
-          dockerfilePath: dockerfile
