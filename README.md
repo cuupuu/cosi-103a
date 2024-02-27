@@ -1,11 +1,13 @@
 # Introduction of Mcdonalds' Menu APP
 This application serves as a convenient platform for customers to place orders.
 
-The navigation bar features essential links for easy access, including options for the 'Home' and 'Contact' pages, along with a dropdown menu dedicated to showcasing our diverse range of recipes.
+The navigation bar features essential links for easy access, including options for the 'Home' and 'Contact' pages, along with a dropdown menu dedicated to showcasing our diverse range of recipes and a menu which can show and close the grocery list.
 
 The 'Home' page presents an enticing array of our specialties. Users can explore further by clicking on the 'View Details' button to discover comprehensive recipes, complete with ingredient lists and step-by-step instructions.
 
 On the 'Contact' page, visitors will find a concise introduction to our dedicated team, providing a personal touch to our service.
+
+Users can add, remove, and clear ingredients in the grocery list by input the name of the ingredients and the list will persist when users visit other pages of our website app.
 
 # Getting Started with Mcdonalds' Menu APP
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
