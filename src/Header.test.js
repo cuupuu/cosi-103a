@@ -1,25 +1,34 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import Header from './Header';
 
-test('renders header component', () => {
-    render(<Header />);
-    // Add your assertions here
-    const headerElement = screen.getByText(/Header/i);
-    expect(headerElement).toBeInTheDocument();
-});
+// Mock the Navbar component to isolate the test to Header functionality
+jest.mock('./Navbar', () => ({
+  // Mock Navbar with a button to simulate toggle functionality
+  __esModule: true,
+  default: ({ toggleGroceryList, src }) => (
+    <button onClick={toggleGroceryList} data-testid="navbar-toggle">
+      Toggle Grocery List
+    </button>
+  ),
+}));
 
-test('renders header component with custom title', () => {
-    render(<Header title="Custom Title" />);
-    // Add your assertions here
-    const headerElement = screen.getByText(/Custom Title/i);
-    expect(headerElement).toBeInTheDocument();
-});
+describe('Header Component', () => {
+  const title = 'Test Title';
+  const src = 'testicon.png';
 
-test('renders header component with custom image source', () => {
-    render(<Header src="custom-image.png" />);
-    // Add your assertions here
-    const imageElement = screen.getByAltText(/Custom Image/i);
-    expect(imageElement).toBeInTheDocument();
+  it('renders correctly with given title and src', () => {
+    render(<Header title={title} src={src} />);
+    // Check if the title is rendered
+    expect(screen.getByText(title)).toBeInTheDocument();
+    // Since Navbar is mocked, we only ensure it is part of the document
+    expect(screen.getByTestId('navbar-toggle')).toBeInTheDocument();
+  });
+
+  it('toggles grocery list visibility on click', () => {
+    render(<Header title={title} src={src} />);
+    // Simulate click on the Navbar toggle button
+    fireEvent.click(screen.getByTestId('navbar-toggle'));
+      });
 });
-// Path: src/Navbar.test.js

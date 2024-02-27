@@ -1,66 +1,64 @@
+// GroceryList.test.js
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import React from 'react';
+import '@testing-library/jest-dom/extend-expect';
 import GroceryList from './GroceryList';
-import { useGroceryList } from './GroceryListContext';
+import { GroceryListProvider } from './GroceryListContext'; // Import the context provider
 
-// Mock the GroceryListContext module
-jest.mock('./GroceryListContext', () => ({
-  useGroceryList: jest.fn(),
-}));
+// Mock the context if necessary, or wrap the component in the actual context provider
+// and provide a mock value for testing.
 
 describe('GroceryList Component', () => {
   const mockToggleGroceryList = jest.fn();
-  const mockAddIngredient = jest.fn();
-  const mockRemoveIngredient = jest.fn();
-  const mockClearGroceryList = jest.fn();
 
   beforeEach(() => {
-    // Reset mock functions' states before each test
-    mockToggleGroceryList.mockClear();
-    mockAddIngredient.mockClear();
-    mockRemoveIngredient.mockClear();
-    mockClearGroceryList.mockClear();
-
-    // Setup the mock implementation of useGroceryList
-    useGroceryList.mockImplementation(() => ({
-      groceryList: ['Apples', 'Oranges'],
-      addIngredient: mockAddIngredient,
-      removeIngredient: mockRemoveIngredient,
-      clearGroceryList: mockClearGroceryList,
-    }));
+    render(
+      <GroceryListProvider>
+        <GroceryList toggleGroceryList={mockToggleGroceryList} />
+      </GroceryListProvider>
+    );
   });
 
-  it('renders without crashing', () => {
-    render(<GroceryList toggleGroceryList={mockToggleGroceryList} />);
+  it('renders correctly', () => {
     expect(screen.getByText('Grocery List')).toBeInTheDocument();
     expect(screen.getByPlaceholderText('Enter ingredient...')).toBeInTheDocument();
+    expect(screen.getByText('Add Ingredient')).toBeInTheDocument();
+    expect(screen.getByText('Clear Grocery List')).toBeInTheDocument();
   });
 
-  it('adds an ingredient when the add button is clicked', async () => {
-    render(<GroceryList toggleGroceryList={mockToggleGroceryList} />);
-    await userEvent.type(screen.getByPlaceholderText('Enter ingredient...'), 'Bananas');
-    fireEvent.click(screen.getByText('Add Ingredient'));
-    expect(mockAddIngredient).toHaveBeenCalledWith('Bananas');
+  // Example of adding an item before attempting to remove it
+it('allows users to add and then remove an ingredient', async () => {
+  const input = screen.getByPlaceholderText('Enter ingredient...');
+  const addButton = screen.getByText('Add Ingredient');
+  
+  fireEvent.change(input, { target: { value: 'Tomatoes' } });
+  fireEvent.click(addButton);
+
+  // Wait for the item to be added to the DOM
+  const newItem = await screen.findByText('Tomatoes');
+  expect(newItem).toBeInTheDocument();
+
+  // Now attempt to remove the item
+  const removeButton = screen.getByText('Remove'); // Adjust based on how your items are rendered
+  fireEvent.click(removeButton);
+  
+  // Verify the item was removed
+  // Use queryByText to verify that an element is not present.
+  expect(screen.queryByText('Tomatoes')).not.toBeInTheDocument();
+});
+
+  it('clears the grocery list when clear button is clicked', () => {
+    const clearButton = screen.getByText('Clear Grocery List');
+    fireEvent.click(clearButton);
+
+    // Assuming the list initially has items, they should be removed. Adjust this based on your initial state.
+    expect(screen.queryByRole('listitem')).toBeNull();
   });
 
-  it('clears the grocery list when the clear button is clicked', () => {
-    render(<GroceryList toggleGroceryList={mockToggleGroceryList} />);
-    fireEvent.click(screen.getByText('Clear Grocery List'));
-    expect(mockClearGroceryList).toHaveBeenCalled();
-  });
+  it('calls toggleGroceryList when close button is clicked', () => {
+    const closeButton = screen.getByText('Close Grocery List');
+    fireEvent.click(closeButton);
 
-  it('calls toggleGroceryList when the close button is clicked', () => {
-    render(<GroceryList toggleGroceryList={mockToggleGroceryList} />);
-    fireEvent.click(screen.getByText('Close Grocery List'));
     expect(mockToggleGroceryList).toHaveBeenCalled();
-  });
-
-  it('removes an ingredient when the remove button is clicked', () => {
-    render(<GroceryList toggleGroceryList={mockToggleGroceryList} />);
-    const removeButtons = screen.getAllByText('Remove');
-    fireEvent.click(removeButtons[0]); // Click the remove button of the first ingredient
-    expect(mockRemoveIngredient).toHaveBeenCalledWith(0);
   });
 });

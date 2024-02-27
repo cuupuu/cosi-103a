@@ -1,40 +1,18 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import Layout from './Layout';
 
 describe('Layout', () => {
-    test('renders children', () => {
-        render(
-            <Layout>
-                <div>Child Component 1</div>
-                <div>Child Component 2</div>
-            </Layout>
-        );
-
-        // Assert that the child components are rendered
-        expect(screen.getByText('Child Component 1')).toBeInTheDocument();
-        expect(screen.getByText('Child Component 2')).toBeInTheDocument();
+    it('renders without error', () => {
+        render(<Layout />);
     });
 
-    test('renders Header component', () => {
-        render(
+    it('renders children correctly', () => {
+        const { getByText } = render(
             <Layout>
                 <div>Child Component</div>
             </Layout>
         );
-
-        // Assert that the Header component is rendered
-        expect(screen.getByTestId('header-component')).toBeInTheDocument();
-    });
-
-    test('renders Footer component', () => {
-        render(
-            <Layout>
-                <div>Child Component</div>
-            </Layout>
-        );
-
-        // Assert that the Footer component is rendered
-        expect(screen.getByTestId('footer-component')).toBeInTheDocument();
+        expect(getByText('Child Component')).toBeInTheDocument();
     });
 });

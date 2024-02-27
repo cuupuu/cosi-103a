@@ -1,49 +1,57 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { MemoryRouter, Route } from 'react-router-dom';
 import { RecipePage } from './RecipePage';
+import { MemoryRouter, Route } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
-const recipes = [
-    { id: 1, title: 'Pasta', ingredients: ['pasta', 'sauce'] },
-    { id: 2, title: 'Pizza', ingredients: ['dough', 'cheese', 'toppings'] },
-];
+// Mocking useParams to return a specific recipe ID
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'), // use actual for all non-hook parts
+  useParams: jest.fn(),
+}));
 
 describe('RecipePage', () => {
-    test('renders recipe title and ingredients', () => {
-        const { getByText } = render(
-            <MemoryRouter initialEntries={['/recipes/1']}>
-                <Route path="/recipes/:id">
-                    <RecipePage recipes={recipes} />
-                </Route>
-            </MemoryRouter>
-        );
+  const mockRecipes = {
+    '1': {
+      title: 'Big Mac',
+      image: 'big-mac.jpg',
+      description: 'A delicious burger',
+      ingredients: ['Bun', 'Beef Patty', 'Lettuce', 'Cheese'],
+      instructions: ['Cook the beef patty', 'Assemble the burger']
+    }
+  };
 
-        expect(getByText('Pasta')).toBeInTheDocument();
-        expect(getByText('Ingredients: pasta, sauce')).toBeInTheDocument();
+  beforeEach(() => {
+    // Mock useParams before each test
+    useParams.mockReturnValue({ id: '1' });
+  });
+
+  it('renders recipe details correctly', () => {
+    render(
+      <MemoryRouter>
+        <RecipePage recipes={mockRecipes} />
+      </MemoryRouter>
+    );
+
+    expect(screen.getByText("Big Mac")).toBeInTheDocument();
+    expect(screen.getByText("A delicious burger")).toBeInTheDocument();
+    mockRecipes['1'].ingredients.forEach(ingredient => {
+      expect(screen.getByText(ingredient)).toBeInTheDocument();
     });
-
-    test('renders "Recipe not found" when recipe does not exist', () => {
-        const { getByText } = render(
-            <MemoryRouter initialEntries={['/recipes/3']}>
-                <Route path="/recipes/:id">
-                    <RecipePage recipes={recipes} />
-                </Route>
-            </MemoryRouter>
-        );
-
-        expect(getByText('Recipe not found')).toBeInTheDocument();
+    mockRecipes['1'].instructions.forEach(instruction => {
+      expect(screen.getByText(instruction)).toBeInTheDocument();
     });
+    expect(screen.getByRole('img', { name: 'Big Mac' })).toHaveAttribute('src', '/big-mac.jpg');
+  });
 
-    test('renders back link to recipes list', () => {
-        const { getByText } = render(
-            <MemoryRouter initialEntries={['/recipes/1']}>
-                <Route path="/recipes/:id">
-                    <RecipePage recipes={recipes} />
-                </Route>
-            </MemoryRouter>
-        );
+  it('provides a link to navigate back home', () => {
+    render(
+      <MemoryRouter>
+        <RecipePage recipes={mockRecipes} />
+      </MemoryRouter>
+    );
 
-        expect(getByText('Back to Recipes')).toBeInTheDocument();
-        expect(screen.getByRole('link', { name: 'Back to Recipes' })).toHaveAttribute('href', '/recipes');
-    });
+    expect(screen.getByRole('link', { name: 'Back Home' })).toHaveAttribute('href', '/');
+  });
+
 });

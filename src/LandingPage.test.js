@@ -1,27 +1,34 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { BrowserRouter } from 'react-router-dom';
 import { Home } from './LandingPage';
+import { useNavigate } from 'react-router-dom';
 
-describe('LandingPage', () => {
-    test('renders header with correct title', () => {
-        render(<Home />);
-        const headerElement = screen.getByText("McDonald's Menu");
-        expect(headerElement).toBeInTheDocument();
-    });
+// Mock useNavigate
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'), // Import and spread the actual module
+  useNavigate: jest.fn(), // Mock useNavigate
+}));
 
-    test('renders recipe cards with correct information', () => {
-        render(<Home />);
-        const recipeCards = screen.getAllByTestId('recipe-card');
-        expect(recipeCards).toHaveLength(3); // Assuming there are 3 recipes in the 'recipes' array
+describe('Home Component', () => {
+  it('renders correctly', () => {
+    render(<Home />, { wrapper: BrowserRouter }); // Wrap the component with BrowserRouter
+    expect(screen.getByText("McDonald's Menu")).toBeInTheDocument();
+    // Add more assertions here as needed
+  });
 
-        // Example assertions for the first recipe card
-        expect(recipeCards[0]).toHaveTextContent('Recipe 1');
-        expect(recipeCards[0]).toHaveTextContent('Description 1');
-    });
+  it('navigates to recipe page on button click', async () => {
+    const mockNavigate = jest.fn();
+    useNavigate.mockImplementation(() => mockNavigate); // Use the mock function for navigate
 
-    test('navigates to recipe page when "View Details" button is clicked', () => {
-        render(<Home />);
-        const viewDetailsButton = screen.getByText('View Details');
-        fireEvent.click(viewDetailsButton);
-    });
+    render(<Home />, { wrapper: BrowserRouter });
+
+    const viewDetailsButton = screen.getAllByText('View Details')[0]; // Assume there's at least one recipe
+    await userEvent.click(viewDetailsButton);
+
+    // Check if navigate was called with the correct path
+    // This assumes your recipes array has a consistent indexing system
+    expect(mockNavigate).toHaveBeenCalledWith(`/recipe/0`); // Adjust based on your actual data
+  });
 });
