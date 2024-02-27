@@ -1,0 +1,33 @@
+header {
+    background-color: #000000; 
+    color: white;
+    margin-bottom: 20px; 
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    justify-content: center; /* Changed from center to space-between */
+    text-align: center; /* Centers text for inline or inline-block elements */
+    width: 100vw; 
+    /* width: 1650px;
+    height: 100px; */
+    flex:1;
+    position: relative; /* New line */
+    
+}
+
+
+
+
+.header-title {
+    position: absolute; /* New line */
+    left: 50%; /* New line */
+    transform: translateX(-50%); /* New line */
+}
+
+
+.header-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    order: -1
+}
