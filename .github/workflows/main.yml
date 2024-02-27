@@ -1,20 +1,37 @@
-name: Test-Sprint3
-run-name: ${{ github.actor }} is testing sprint 3
+name: Test-Sprint4
+run-name: ${{ github.actor }} is testing sprint 4
+
 on: 
   pull_request:
     branches: 
       - main
+
+
 jobs:
-  test-sprint2:
+  test-sprint4:
     runs-on: ubuntu-latest
+    
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - run: npm install
-        working-directory: mcdonalds2
-      # - run: npm start
-      #   working-directory: mcdonalds2
-      - run: npm test
-        working-directory: mcdonalds2
+      
+      - name: Install dependencies
+        run: npm install
+        working-directory: src
+      
+      - name: Run tests
+        run: npm test
+        working-directory: src
+
+# Use the azure/login@v1 action to connect to Azure with the created secrets
+# - name: Log into Azure
+# uses: azure/login@v1
+# with:
+#   client-id: cdf15b8f-e8bc-4478-af95-ce9a3fd7d103
+#   tenant-id: 02e496e0-bb8f-4ec3-bf4d-6e3cd4bd4ba4
+#   subscription-id: ffc52f45-ea26-4ffd-ba5b-b79c1134abc3
