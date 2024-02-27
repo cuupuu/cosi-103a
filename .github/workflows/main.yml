@@ -33,9 +33,7 @@ jobs:
         working-directory: src
 
   deploy-infra:
-    name: Deploy Infra
-    runs-on: windows-latest
-    environment: prd
+    runs-on: ubuntu-latest
 
     steps:
       # Use the azure/login@v1 action to connect to Azure with the created secrets
