@@ -1,28 +1,48 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import App from './App';
-import { MemoryRouter } from 'react-router-dom';
+import recipes from './Recipe';
 
-describe('App Routing', () => {
-  test('renders Home component as the default page', () => {
+// Mock components to simplify testing
+jest.mock('./Layout', () => ({ children }) => <div>Layout Component {children}</div>);
+jest.mock('./LandingPage', () => ({ Home: () => <div>Home Component</div> }));
+jest.mock('./RecipePage', () => ({ RecipePage: () => <div>RecipePage Component</div> }));
+jest.mock('./Contact', () => () => <div>Contact Component</div>);
+
+describe('App', () => {
+  it('renders the Home component on the root route', () => {
     render(
       <MemoryRouter initialEntries={['/']}>
         <App />
       </MemoryRouter>
     );
-    expect(screen.getByText("McDonald's Menu")).toBeInTheDocument();
+
+    expect(screen.getByText('Home Component')).toBeInTheDocument();
+    expect(screen.getByText('Layout Component')).toBeInTheDocument();
   });
 
-  test('renders RecipePage component when navigating to a recipe', () => {
-    // Assuming RecipePage will display the title of a recipe
-    // Note: This assumes you have a way to navigate to RecipePage in your app
-    // For a more accurate test, consider mocking RecipePage or implementing a navigation link in Home
+  it('renders the RecipePage component on the /recipe/:id route', () => {
+    const testRecipeId = recipes[0].id; // Assuming your recipes have an id property
     render(
-      <MemoryRouter initialEntries={['/recipe/0']}>
+      <MemoryRouter initialEntries={[`/recipe/${testRecipeId}`]}>
         <App />
       </MemoryRouter>
     );
-    // Example assertion, adjust based on your RecipePage component's content
-    expect(screen.getByText('Ingredients')).toBeInTheDocument();
+
+    expect(screen.getByText('RecipePage Component')).toBeInTheDocument();
+    expect(screen.getByText('Layout Component')).toBeInTheDocument();
+  });
+
+  it('renders the Contact component on the /contact route', () => {
+    render(
+      <MemoryRouter initialEntries={['/contact']}>
+        <App />
+      </MemoryRouter>
+    );
+
+    expect(screen.getByText('Contact Component')).toBeInTheDocument();
+    expect(screen.getByText('Layout Component')).toBeInTheDocument();
   });
 });

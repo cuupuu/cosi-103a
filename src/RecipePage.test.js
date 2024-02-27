@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter, Route } from 'react-router-dom';
-import RecipePage from './RecipePage';
+import { RecipePage } from './RecipePage';
 
 const recipes = [
     { id: 1, title: 'Pasta', ingredients: ['pasta', 'sauce'] },

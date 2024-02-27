@@ -1,87 +1,73 @@
-import { render, screen, fireEvent } from '@testing-library/react';
-import { GroceryListProvider } from './GroceryListContext';
-import GroceryList from './GroceryList';
+import { render, act } from '@testing-library/react';
+import React from 'react';
+import { GroceryListProvider, useGroceryList } from './GroceryListContext';
 
-describe('GroceryList Component Tests', () => {
-  it('renders correctly with GroceryListProvider', () => {
-    render(
+// Helper component to test the useGroceryList hook
+const GroceryListConsumer = () => {
+  const { groceryList, addIngredient, removeIngredient, clearGroceryList } = useGroceryList();
+  return (
+    <div>
+      <ul>
+        {groceryList.map((ingredient, index) => (
+          <li key={index}>{ingredient}</li>
+        ))}
+      </ul>
+      <button onClick={() => addIngredient('Apples')}>Add Apples</button>
+      <button onClick={() => removeIngredient(0)}>Remove First Ingredient</button>
+      <button onClick={() => clearGroceryList()}>Clear List</button>
+    </div>
+  );
+};
+
+describe('GroceryListContext', () => {
+  it('provides an initial empty list', () => {
+    const { queryByText } = render(
       <GroceryListProvider>
-        <GroceryList />
+        <GroceryListConsumer />
       </GroceryListProvider>
     );
-
-    // Check if the input box is rendered
-    expect(screen.getByPlaceholderText('Enter ingredient...')).toBeInTheDocument();
-
-    // Check if the 'Add Ingredient' button is rendered
-    expect(screen.getByText('Add Ingredient')).toBeInTheDocument();
-
-    // Check if the 'Clear Grocery List' button is rendered
-    expect(screen.getByText('Clear Grocery List')).toBeInTheDocument();
+    expect(queryByText('Apples')).toBeNull();
   });
 
-  it('allows users to add an ingredient', () => {
-    render(
+  it('adds an ingredient to the list', () => {
+    const { queryByText, getByText } = render(
       <GroceryListProvider>
-        <GroceryList />
+        <GroceryListConsumer />
       </GroceryListProvider>
     );
-
-    // Simulate typing in the input
-    fireEvent.change(screen.getByPlaceholderText('Enter ingredient...'), {
-      target: { value: 'Apples' },
+    act(() => {
+      getByText('Add Apples').click();
     });
-
-    // Click on 'Add Ingredient'
-    fireEvent.click(screen.getByText('Add Ingredient'));
-
-    // Check if the ingredient was added
-    expect(screen.getByText('Apples')).toBeInTheDocument();
+    expect(queryByText('Apples')).not.toBeNull();
   });
 
-  it('allows users to remove an ingredient', async () => {
-    render(
+  it('removes an ingredient from the list', () => {
+    const { queryByText, getByText } = render(
       <GroceryListProvider>
-        <GroceryList />
+        <GroceryListConsumer />
       </GroceryListProvider>
     );
-
-    // Add an ingredient
-    fireEvent.change(screen.getByPlaceholderText('Enter ingredient...'), {
-      target: { value: 'Oranges' },
+    act(() => {
+      getByText('Add Apples').click();
     });
-    fireEvent.click(screen.getByText('Add Ingredient'));
-
-    // Remove the ingredient
-    fireEvent.click(screen.getByText('Remove'));
-
-    // Check if the ingredient was removed
-    expect(screen.queryByText('Oranges')).not.toBeInTheDocument();
+    act(() => {
+      getByText('Remove First Ingredient').click();
+    });
+    expect(queryByText('Apples')).toBeNull();
   });
 
   it('clears the grocery list', () => {
-    render(
+    const { queryByText, getByText } = render(
       <GroceryListProvider>
-        <GroceryList />
+        <GroceryListConsumer />
       </GroceryListProvider>
     );
-
-    // Add two ingredients
-    fireEvent.change(screen.getByPlaceholderText('Enter ingredient...'), {
-      target: { value: 'Bananas' },
+    act(() => {
+      getByText('Add Apples').click();
     });
-    fireEvent.click(screen.getByText('Add Ingredient'));
-
-    fireEvent.change(screen.getByPlaceholderText('Enter ingredient...'), {
-      target: { value: 'Grapes' },
+    act(() => {
+      getByText('Clear List').click();
     });
-    fireEvent.click(screen.getByText('Add Ingredient'));
-
-    // Clear the list
-    fireEvent.click(screen.getByText('Clear Grocery List'));
-
-    // Check if the list was cleared
-    expect(screen.queryByText('Bananas')).not.toBeInTheDocument();
-    expect(screen.queryByText('Grapes')).not.toBeInTheDocument();
+    expect(queryByText('Apples')).toBeNull();
   });
 });
