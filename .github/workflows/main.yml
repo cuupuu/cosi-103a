@@ -40,14 +40,10 @@ jobs:
       - name: Log in to Azure
         uses: azure/login@v1
         with:
-          client-id: cdf15b8f-e8bc-4478-af95-ce9a3fd7d103
-          tenant-id: 02e496e0-bb8f-4ec3-bf4d-6e3cd4bd4ba4
-          subscription-id: ffc52f45-ea26-4ffd-ba5b-b79c1134abc3
-      
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
       - name: Build and deploy Container App
         uses: azure/container-apps-deploy-action@v1
         with:
           appSourcePath: ${{ github.workspace }}
           acrName: cosi103a
-          containerAppName: sprint4
-          resourceGroup: myResourceGroup
