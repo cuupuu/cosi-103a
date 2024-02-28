@@ -10,7 +10,6 @@ permissions:
   id-token: write
   contents: read
 
-
 jobs:
   test-sprint4:
     runs-on: ubuntu-latest
@@ -26,17 +25,27 @@ jobs:
       
       - name: Install dependencies
         run: npm install
-        working-directory: src
+        # Ensure the working directory is correctly set if your project is in the root
+        # If your project is in a subdirectory like 'src', adjust accordingly.
       
       - name: Run tests
         run: npm test
-        working-directory: src
+        # As above, ensure the working directory is correct for your project structure.
 
-  build:
+  build-and-deploy:
+    needs: test-sprint4  # Ensures this job runs only after the test-sprint4 job completes successfully.
     runs-on: ubuntu-latest
     environment: prd
 
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
       - name: Log into Azure
         uses: azure/login@v1
         with:
@@ -44,11 +53,21 @@ jobs:
           tenant-id: 02e496e0-bb8f-4ec3-bf4d-6e3cd4bd4ba4
           subscription-id: ffc52f45-ea26-4ffd-ba5b-b79c1134abc3
 
-      - name: Build and deploy Container App
+      # Assuming you have a Dockerfile in your project root. If not, you might need to build
+      # your image differently or specify the path to your Dockerfile.
+      - name: Build and push image to ACR
+        run: |
+          az acr build --registry ${{ secrets.ACR_NAME }} --image mcdonalds:${{ github.sha }} .
+        env:
+          ACR_NAME: cosi103a
+          AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Deploy Container App
         uses: azure/container-apps-deploy-action@v1
         with:
-          appSourcePath: ${{ github.workspace }}
-          acrName: cosi103a
+          # Assuming the image name is the same as what's pushed to ACR
+          imageName: cosi103a.azurecr.io/mcdonalds:${{ github.sha }}
           containerAppName: mcdonalds
           resourceGroup: myResourceGroup
+
           
