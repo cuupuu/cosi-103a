@@ -57,7 +57,7 @@ jobs:
       # your image differently or specify the path to your Dockerfile.
       - name: Build and push image to ACR
         run: |
-          az acr build --registry ${{ secrets.ACR_NAME }} --image mcdonalds:${{ github.sha }} .
+          az acr build --registry ${{ secrets.ACR_NAME }} --image mcdonalds:${{ github.sha }} ./src.
         env:
           ACR_NAME: cosi103a
           AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
