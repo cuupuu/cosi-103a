@@ -49,4 +49,6 @@ jobs:
         with:
           appSourcePath: ${{ github.workspace }}
           acrName: cosi103a
+          containerAppName: mcdonalds
           resourceGroup: myResourceGroup
+          
