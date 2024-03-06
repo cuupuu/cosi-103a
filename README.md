@@ -1,10 +1,4 @@
 # Introduction of Mcdonalds' Menu APP
-<<<<<<< HEAD
-=======
-
-[](https://github.com/cuupuu/cosi-103a/blob/main/README.md#introduction-of-mcdonalds-menu-app)
-
->>>>>>> e816611fe7b68ab875e3a95b852500521d050a47
 This application serves as a convenient platform for customers to place orders.
 
 The navigation bar features essential links for easy access, including options for the 'Home' and 'Contact' pages, along with a dropdown menu dedicated to showcasing our diverse range of recipes and a menu which can show and close the grocery list.
@@ -16,7 +10,6 @@ On the 'Contact' page, visitors will find a concise introduction to our dedicate
 Users can add, remove, and clear ingredients in the grocery list by input the name of the ingredients and the list will persist when users visit other pages of our website app.
 
 # Getting Started with Mcdonalds' Menu APP
-<<<<<<< HEAD
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Author    
@@ -68,7 +61,6 @@ Install node_modules before testing
 [](https://github.com/cuupuu/cosi-103a/blob/main/README.md#npm-test)
 
 Launches the test runner in the interactive watch mode.
->>>>>>> e816611fe7b68ab875e3a95b852500521d050a47
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
@@ -85,24 +77,15 @@ Builds the app for production to the `build` folder.
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
 The build is minified and the filenames include the hashes.
->>>>>>> e816611fe7b68ab875e3a95b852500521d050a47
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 ### `npm start`
 
-<<<<<<< HEAD
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-=======
-[](https://github.com/cuupuu/cosi-103a/blob/main/README.md#npm-start)
 
 Runs the app in the development mode.
 Open [http://localhost:3000](http://localhost:3000/) to view it in your browser.
 
 The page will reload when you make changes.
->>>>>>> e816611fe7b68ab875e3a95b852500521d050a47
 You may also see any lint errors in the console.
