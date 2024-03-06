@@ -18,29 +18,6 @@ Yuting Xing
 Chupei Yan        
 Yenyi Li   
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm install`
-Install node_modules before testing
-
-
-### `npm test`
-
-
-[](https://github.com/cuupuu/cosi-103a/blob/main/README.md#getting-started-with-mcdonalds-menu-app)
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Author
-
-[](https://github.com/cuupuu/cosi-103a/blob/main/README.md#author)
-
-Ruixue Gou
-Yuting Xing
-Chupei Yan
-Yenyi Li
 
 ## Available Scripts
 
