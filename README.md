@@ -28,8 +28,6 @@ Install node_modules before testing
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-=======
 
 [](https://github.com/cuupuu/cosi-103a/blob/main/README.md#getting-started-with-mcdonalds-menu-app)
 
@@ -65,12 +63,6 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 ### `npm run build`
 
-<<<<<<< HEAD
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-=======
 [](https://github.com/cuupuu/cosi-103a/blob/main/README.md#npm-run-build)
 
 Builds the app for production to the `build` folder.
