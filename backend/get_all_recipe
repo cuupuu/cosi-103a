@@ -1,8 +1,0 @@
-// routes/get_all_recipe.js
-
-module.exports = function(app, recipes) {
-    app.get('/api/recipes', (req, res) => {
-      res.status(200).json(recipes);
-    });
-  };
-  

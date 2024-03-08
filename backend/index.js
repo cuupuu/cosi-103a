@@ -2,38 +2,37 @@ const path = require("path");
 const express = require("express");
 const bodyParser = require("body-parser");
 
-const app = express(); // create express app
+const app = express();
 const PORT = process.env.PORT || 5001;
+const { isValidateJSON } = require("./isValidateJSON");
+const { updateRecipe } = require("./recipe_update");
 
 app.use(bodyParser.json());
 
-let recipes = []; // In-memory "database"
+let recipes = [];
 
-// Require and use the route modules
-require('./recipe_update')(app, recipes);
-require('./get_all_recipe')(app, recipes);
-
-// Serve static files from the React app
 app.use(express.static(path.join(__dirname, "../frontend/build")));
 
-// POST endpoint to receive JSON data
-app.post("/api/submitRecipe", (req, res) => {
-  const jsonData = req.body;
+app.post("/api/recipes", async (req, res) => {
+  const recipe = req.body;
+  if (!isValidateJSON(recipe)) {
+    return res.status(400).send("Invalid data format");
+  }
 
-  console.log("Received JSON data:", jsonData);
-
-  //
-  res.json({ message: "Data received successfully", data: jsonData });
+  try {
+    await updateRecipe(app,recipes);
+    res.status(201).send(recipes);
+  } catch (error) {
+    console.error("Error adding recipe:", error);
+    res.status(500).send("Error adding recipe");
+  }
 });
 
-// Serve additional static files (if any) from the 'public' directory
 app.use(express.static("public"));
 
-// Serve the React app's index.html file for any other routes
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/build"));
 });
-
 
 app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);

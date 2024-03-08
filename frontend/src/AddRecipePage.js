@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
 
-<<<<<<< HEAD:frontend/src/AddRecipePage.js
-function AddRecipePage(){
-=======
 function AddRecipe() {
   const [recipeJson, setRecipeJson] = useState(JSON.stringify({
     title: '',
@@ -11,7 +8,6 @@ function AddRecipe() {
     instructions: [],
     image: 'default.jpg' // This will be your default image filename
   }, null, 2)); // Pretty print JSON
->>>>>>> b4007f31b6079cc76e93ca2ed4287db391b66be7:frontend/src/AddRecipe.js
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -40,6 +36,7 @@ function AddRecipe() {
         throw new Error(`HTTP error! status: ${response.status}`);
       } else {
         alert('Recipe added!');
+        console.log('Recipe added:', recipe);
         setRecipeJson(JSON.stringify({
           title: '',
           description: '',
@@ -70,10 +67,4 @@ function AddRecipe() {
   );
 }
 
-<<<<<<< HEAD:frontend/src/AddRecipePage.js
-
-
-export default AddRecipePage;
-=======
 export default AddRecipe;
->>>>>>> b4007f31b6079cc76e93ca2ed4287db391b66be7:frontend/src/AddRecipe.js

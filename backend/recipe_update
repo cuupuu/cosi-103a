@@ -1,11 +1,12 @@
-// routes/recipe_uprate.js
+// routes/recipe_update.js
 
-module.exports = function(app, recipes) {
-    app.post('/api/recipes', (req, res) => {
-      const recipe = req.body; // Assuming the body contains a recipe object
+const updateRecipe = (app, recipes) => {
+  app.post('/api/recipes', (req, res) => {
+      const recipe = req.body; 
       recipe.id = recipes.length + 1; // Assign a simple unique ID
       recipes.push(recipe);
       res.status(201).send(recipe);
-    });
-  };
-  
+  });
+};
+
+module.exports = { updateRecipe };
