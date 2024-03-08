@@ -1,6 +1,6 @@
 import Header from './Header';
 
-function AddRecipe(){
+function AddRecipePage(){
 
     return(
         <div>
@@ -11,4 +11,4 @@ function AddRecipe(){
 
 
 
-export default AddRecipe;
+export default AddRecipePage;

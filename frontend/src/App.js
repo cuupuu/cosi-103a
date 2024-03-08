@@ -5,7 +5,7 @@ import { Home } from './LandingPage';
 import { RecipePage } from './RecipePage';
 import recipes from './Recipe';
 import Contact from './Contact';
-import AddRecipe from './AddRecipe';
+import AddRecipePage from './AddRecipePage';
 
 function App() {
     return (
@@ -13,7 +13,7 @@ function App() {
             <Route path="/" element={<Layout><Home/></Layout>} /> {/* Wrap Home component with Layout */}
             <Route path="/recipe/:id" element={<Layout><RecipePage recipes={recipes}/></Layout>} /> {/* Wrap RecipePage component with Layout */}
             <Route path="/contact" element={<Layout><Contact/></Layout>} /> {/* Wrap Contact component with Layout */}
-            <Route path="/addRecipe" element={<Layout><AddRecipe/></Layout>} /> {/* Wrap AddRecipe component with Layout */}
+            <Route path="/addRecipePage" element={<Layout><AddRecipePage/></Layout>} /> {/* Wrap AddRecipe component with Layout */}
         </Routes>
     )
 }

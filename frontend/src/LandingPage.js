@@ -31,7 +31,8 @@ export const Home = () => {
                             <p className="description">{recipe.description}</p>
                             <button className="view-details-btn" onClick={() => goToRecipePage(recipe.index)}>View Details</button>
                         </div> 
-                    ))}              
+                    ))}
+                                                      
                 </div>
             </main>
         </div>

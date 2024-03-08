@@ -15,7 +15,7 @@ const Navbar = ({src}) => {
             <img src={src} alt="McDonald's Logo" className="header-img" />
             <div className="links">
                 <Link to="/">Home</Link>
-                <Link to="/addRecipe">Add Recipes</Link>
+                <Link to="/addRecipePage">Add Recipes</Link>
                 <Link to="/contact">Contact</Link>
                 <div className="dropdown">
                     <button className="dropbtn">Recipes</button>
