@@ -1,7 +1,4 @@
 # Introduction of Mcdonalds' Menu APP
-
-[](https://github.com/cuupuu/cosi-103a/blob/main/README.md#introduction-of-mcdonalds-menu-app)
-
 This application serves as a convenient platform for customers to place orders.
 
 The navigation bar features essential links for easy access, including options for the 'Home' and 'Contact' pages, along with a dropdown menu dedicated to showcasing our diverse range of recipes and a menu which can show and close the grocery list.
@@ -13,19 +10,14 @@ On the 'Contact' page, visitors will find a concise introduction to our dedicate
 Users can add, remove, and clear ingredients in the grocery list by input the name of the ingredients and the list will persist when users visit other pages of our website app.
 
 # Getting Started with Mcdonalds' Menu APP
-
-[](https://github.com/cuupuu/cosi-103a/blob/main/README.md#getting-started-with-mcdonalds-menu-app)
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Author
+## Author    
+Ruixue Gou  
+Yuting Xing  
+Chupei Yan        
+Yenyi Li   
 
-[](https://github.com/cuupuu/cosi-103a/blob/main/README.md#author)
-
-Ruixue Gou
-Yuting Xing
-Chupei Yan
-Yenyi Li
 
 ## Available Scripts
 
@@ -60,10 +52,9 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### `npm start`
 
-[](https://github.com/cuupuu/cosi-103a/blob/main/README.md#npm-start)
 
 Runs the app in the development mode.
-Open [http://localhost:3000](http://localhost:3000/) to view it in your browser.
+Open [http://localhost:3000](http://localhost:5001/) to view it in your browser.
 
 The page will reload when you make changes.
 You may also see any lint errors in the console.
