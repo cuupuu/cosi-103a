@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const app = express();
 const PORT = process.env.PORT || 5001;
 const { isValidateJSON } = require("./isValidateJSON");
-const { updateRecipe } = require("./recipe_update");
+// const { updateRecipe } = require("./recipe_update");
 
 app.use(bodyParser.json());
 
@@ -18,14 +18,10 @@ app.post("/api/recipes", async (req, res) => {
   if (!isValidateJSON(recipe)) {
     return res.status(400).send("Invalid data format");
   }
-
-  try {
-    await updateRecipe(app,recipes);
-    res.status(201).send(recipes);
-  } catch (error) {
-    console.error("Error adding recipe:", error);
-    res.status(500).send("Error adding recipe");
-  }
+  recipe.id = recipes.length + 1; // Assign a simple unique ID
+  recipes.push(recipe);
+  console.log(recipes);
+  res.status(201).send(recipes);
 });
 
 app.use(express.static("public"));

@@ -5,7 +5,7 @@ const updateRecipe = (app, recipes) => {
       const recipe = req.body; 
       recipe.id = recipes.length + 1; // Assign a simple unique ID
       recipes.push(recipe);
-      res.status(201).send(recipe);
+      res.status(201).send(recipes);
   });
 };
 
