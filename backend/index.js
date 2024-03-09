@@ -5,7 +5,6 @@ const bodyParser = require("body-parser");
 const app = express();
 const PORT = process.env.PORT || 5001;
 const { isValidateJSON } = require("./isValidateJSON");
-// const { updateRecipe } = require("./recipe_update");
 
 app.use(bodyParser.json());
 
