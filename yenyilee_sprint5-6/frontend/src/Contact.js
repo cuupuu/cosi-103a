@@ -30,7 +30,7 @@ const peopleData = [
          }
 ];
 
-function Contact() {
+function Contact({recipes}) {
     return (
         <div>
             <Header title="McDonald's Staff" recipes={recipes}/>
