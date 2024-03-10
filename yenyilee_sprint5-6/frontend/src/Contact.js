@@ -1,7 +1,6 @@
 import React from 'react';
 import './Contact.css';
 import Header from './Header';
-import recipes from './Recipe';
 
 const peopleData = [
     {
