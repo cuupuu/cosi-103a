@@ -16,7 +16,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Ruixue Gou  
 Yuting Xing  
 Chupei Yan        
-Yenyi Li   
+Yenyi Lee
 
 
 ## Available Scripts
