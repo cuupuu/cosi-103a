@@ -1,47 +1,52 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { useParams, Link } from 'react-router-dom';
 import Header from './Header';
 import { useGroceryList } from './GroceryListContext';
+import { RecipeContext } from './RecipeContext';
+import './RecipePage.css';
 
-export function RecipePage({ recipes }) {
+export function RecipePage() {
     const { id } = useParams();
-    const recipe = recipes[id];
-    const { addIngredient} = useGroceryList();
+    const { recipes } = useContext(RecipeContext);
+    const recipe = recipes.find(r => r.id.toString() === id);
+
+    const { addIngredient } = useGroceryList();
     const handleAddToGroceryList = (ingredient) => {
         addIngredient(ingredient);
     };
+
     return (
         <div>
             <Header title="McDonald's Recipe" src="/mcdicon.png" />
-            {/* <header>
-                <img src={"/mcdicon.png"} alt="McDonald's Logo" className="header-img" />
-                <h1>McDonald's Recipe</h1>
-            </header>      */}
             <div className="recipe-layout">
-                <img src={"/"+recipe.image} alt={recipe.title} className="recipe-image" />
+                <img src={"/" + recipe.image} alt={recipe.title} className="recipe-image" />
                 <div className="recipe-content">
                     <h1 className='recipe-title'>{recipe.title}</h1>
-                    <h3>{recipe.description}</h3> 
-                    <hr ></hr>              
+                    <h3>{recipe.description}</h3>
+                    <hr></hr>
                     <h3>Ingredients</h3>
-                            {recipe.ingredients.map((ingredient, index) => (
-                                <li className="recipe-list" key={index}>
-                                    <button className="add-btn" onClick={() => handleAddToGroceryList(ingredient)}>
-                                    +
-                                    </button>
-                                    {ingredient}
-                                </li>
-                            ))}
+                    <ul>
+                        {recipe.ingredients.map((ingredient, index) => (
+                            <li className="recipe-list" key={index}>
+                                <button className="add-btn" onClick={() => handleAddToGroceryList(ingredient)}>+</button>
+                                {ingredient}
+                            </li>
+                        ))}
+                    </ul>
                     <h3>Instructions</h3>
                     <ol>
-                            {recipe.instructions.map((instruction, index) => (
-                                <li key={index}>{instruction}</li>
-                            ))}                      
+                        {recipe.instructions.map((instruction, index) => (
+                            <li key={index}>{instruction}</li>
+                        ))}
                     </ol>
-                    <Link to="/">
-                        <button className="backhome-btn">Back Home</button>
+                    <div>
+                    <Link to="/" className="button-link">
+                        <button className="button-style">Back Home</button>
                     </Link>
+                    <Link to={`/recipe/${id}/cooking-mode`} className="button-link">
+                        <button className="button-style">Cooking Mode</button>
+                    </Link>
+                    </div>
                 </div>
             </div>
         </div>

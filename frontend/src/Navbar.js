@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
-import recipes from './Recipe';
 import GroceryList from './GroceryList';
+import { RecipeContext } from './RecipeContext';
 
 const Navbar = ({src}) => {
     const [showGroceryList, setShowGroceryList] = useState(false);
-
+    const { recipes } = useContext(RecipeContext);
     const toggleGroceryList = () => {
       setShowGroceryList(!showGroceryList);
     };
