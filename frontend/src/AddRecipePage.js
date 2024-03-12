@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from './Header';
 // import recipes from './Recipe';
 import './AddRecipePage.css';
+import { RecipeContext } from './recipeContext';
 
-function AddRecipe({onAddRecipe}) {
-  const [recipes, setRecipes] = useState([]);
+function AddRecipe() {
   const [recipeJson, setRecipeJson] = useState(JSON.stringify({
     title: '',
     description: '',
@@ -14,13 +14,17 @@ function AddRecipe({onAddRecipe}) {
     image: 'mcdonalds.png' // This will be your default image filename
   }, null, 2)); // Pretty print JSON
 
+  const { addRecipe, recipes } = useContext(RecipeContext);
+
   const navigate = useNavigate();
     // Add a new piece of state to control whether the modal is shown
   const [showModal, setShowModal] = useState(false);
     // Add a new piece of state to store the index of the newly added recipe
-  const [newRecipeIndex, setNewRecipeIndex] = useState(null);
 
   const [goToRecipeCalled, setGoToRecipeCalled] = useState(false);
+  
+  const [newRecipeIndex, setNewRecipeIndex] = useState(null);
+
 
 
 
@@ -44,13 +48,12 @@ function AddRecipe({onAddRecipe}) {
     try {
       recipe = JSON.parse(recipeJson);
       if (!recipe.image) {
-        recipe.image = 'mcdonalds.png'; // Assign a default image if none is provided
+        recipe.image = '/mcdonalds.png'; // Assign a default image if none is provided
       }
     } catch (e) {
       return alert('Invalid JSON');
     }
-
-
+    
     fetch('/api/recipes', {
       method: 'POST',
       headers: {
@@ -68,21 +71,19 @@ function AddRecipe({onAddRecipe}) {
       clone.text().then(text => console.log('Response text:', text)); // Log the raw response text
       return response.json(); // Parse the original response body as JSON
     })
-    .then(newRecipe => {
-      console.log('Recipe added:', newRecipe);
-      setRecipes([...recipes, newRecipe]);
-      onAddRecipe(newRecipe);
-
-
+    .then( newRecipe=> {
+      console.log('newRecipes:', newRecipe);
       const lastIndex = newRecipe.length - 1;
-      console.log(newRecipe[lastIndex].index);
       setNewRecipeIndex(newRecipe[lastIndex].index);
-      console.log('New recipe index:', newRecipeIndex);
+      console.log(newRecipe[lastIndex].index);
+      addRecipe(newRecipe); // Update context with the new recipe
+      // console.log('New recipe index:', newRecipeIndex);
       setShowModal(true);
     })
     .catch(error => {
       console.error('Error:', error);
     });
+    
 
 
   };
@@ -91,15 +92,16 @@ function AddRecipe({onAddRecipe}) {
   }, [newRecipeIndex]);
 
   useEffect(() => {
-    if (goToRecipeCalled && newRecipeIndex !== null) {
-      navigate(`/recipe/${newRecipeIndex}`);
+    console.log('recipes:', recipes);
+    if (goToRecipeCalled) {
+      navigate(`/recipe/${recipes.length - 1}`);
     }
   }, [goToRecipeCalled, recipes, navigate]);
 
 
   return (
     <div>
-    <Header title="Add Recipe" recipes={recipes}/>
+    <Header title="Add Recipe"/>
     <h1 class='add-recipe-h1'>Add Your Recipe</h1>
     <form class='add-recipe-form' onSubmit={handleSubmit}>
       <label htmlFor="recipeJson">Recipe JSON:</label>

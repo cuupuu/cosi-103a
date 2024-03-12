@@ -1,15 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
-// import recipes from './Recipe';
 import GroceryList from './GroceryList';
+import { RecipeContext } from './recipeContext';
 
-const Navbar = ({src, recipes}) => {
+const Navbar = ({src}) => {
     const [showGroceryList, setShowGroceryList] = useState(false);
 
     const toggleGroceryList = () => {
       setShowGroceryList(!showGroceryList);
     };
+
+    const { recipes } = useContext(RecipeContext);
+
     return (
         <nav className="navbar">
             <img src={src} alt="McDonald's Logo" className="header-img" />

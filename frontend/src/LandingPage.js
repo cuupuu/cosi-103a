@@ -1,11 +1,13 @@
-import React from 'react';
+import React , {useContext}from 'react';
 import { useNavigate } from 'react-router-dom';
-// import recipes from './Recipe';
 import Header from './Header';
+import { RecipeContext } from './recipeContext';
 
 
-export const Home = ({recipes}) => {
+export const Home = () => {
     const navigate = useNavigate();
+
+    const { recipes } = useContext(RecipeContext);
 
     const goToRecipePage = (index) => {
         navigate(`/recipe/${index}`);
