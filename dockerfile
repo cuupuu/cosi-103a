@@ -1,4 +1,4 @@
-# Use a base image compatible with linux/amd64
+FROM --platform=linux/amd64 node:18
 FROM --platform=linux/arm64 node:18
 
 # Creating the working directory named `app`

@@ -45,25 +45,21 @@ h3{
     margin: 2px;
 }
 
-.button-link {
-    margin-right: 10px; /* Adjust the margin to get the desired spacing */
-    text-decoration: none; /* Removes underline from links */
+.backhome-btn {
+    background-color: #DA291C;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+    cursor: pointer;
+    width: 30%;
+    height: 100%;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin: 20px 0px;
 }
-
-.button-style {
-    padding: 10px 20px; /* Add padding inside the button for size */
-    border: none; /* Remove border */
-    background-color: #dc3545; /* Bootstrap red color */
-    color: white; /* Text color */
-    cursor: pointer; /* Cursor to indicate it's clickable */
-    outline: none; /* Remove focus outline */
-    border-radius: 0.25rem; /* Slight rounding of corners to match bootstrap */
-    font-size: 1rem; /* Text size */
-}
-
-/* Additional styles to apply on hover for visual feedback */
-.button-style:hover {
-    background-color: #c82333; /* A shade darker for hover state */
+.backhome-btn:hover {
+    background-color: rgb(255, 85, 0);
 }
 
 .add-btn {

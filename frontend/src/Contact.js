@@ -29,15 +29,10 @@ const peopleData = [
          }
 ];
 
-function Contact() {
+function Contact({recipes}) {
     return (
         <div>
-            <Header title="McDonald's Staff" />
-            {/* <header>
-                <img src={"mcdicon.png"} alt="McDonald's Logo" className="header-img" />
-                <h1>McDonald's Team</h1>
-                <Navbar />
-            </header> */}
+            <Header title="McDonald's Staff" recipes={recipes}/>
             <h1>Contact</h1>
             <div className="boxes">
                 {peopleData.map((person, index) => (

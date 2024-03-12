@@ -1,25 +1,46 @@
-//index.js
 const path = require("path");
 const express = require("express");
-const recipeRoutes = require('./routes/recipeRoutes');
+const bodyParser = require("body-parser");
 
 const app = express();
 const PORT = process.env.PORT || 5005;
+const { isValidateJSON } = require("./isValidateJSON");
+
+app.use(bodyParser.json());
 
 
-// Middleware to parse JSON requests
-app.use(express.json());
+const recipes = require('./RecipeList'); // your initial recipes
 
-// Serve API routes for recipes
-app.use('/api/recipes', recipeRoutes.router);
 
-// Serve static files from the React build directory
-app.use(express.static(path.join(__dirname, '../frontend/build')));
-
-// Fallback for handling React routing - return the main index.html
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/build'));
+app.get("/api/recipes", (req, res) => {
+  res.status(200).json(recipes);
 });
 
-// Start the server
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.use(express.static(path.join(__dirname, "../frontend/build")));
+
+app.post("/api/recipes", async (req, res) => {
+  const recipe = req.body;
+
+  if (!isValidateJSON(recipe)) {
+    return res.status(400).send("Invalid data format");
+  }
+  recipe.index = recipes.length; // Assign a simple unique index
+
+  console.log("Assign index to recipe: ", recipe.index)
+  console.log("Recipe index: ", recipe.index);
+
+  recipes.push(recipe);
+  console.log(recipes);
+
+  res.status(201).send(recipes);
+});
+
+app.use(express.static("public"));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/build"));
+});
+
+app.listen(PORT, () => {
+  console.log(`Server started on port ${PORT}`);
+});
