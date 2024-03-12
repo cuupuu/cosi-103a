@@ -1,5 +1,5 @@
-name: Test-Sprint4
-run-name: ${{ github.actor }} is testing sprint 4
+name: Test-Sprint5
+run-name: ${{ github.actor }} is testing sprint 5
 
 on: 
   pull_request:
@@ -26,17 +26,20 @@ jobs:
       
       - name: Install dependencies
         run: npm install
-        working-directory: src
+        working-directory: ./frontend
+
       
       - name: Run tests
         run: npm test
-        working-directory: src
+        working-directory: ./frontend/src
+        
 
-  build:
+  deploy-infra:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Log in to Azure
+      # Use the azure/login@v1 action to connect to Azure with the created secrets
+      - name: Log into Azure
         uses: azure/login@v1
         with:
           client-id: cdf15b8f-e8bc-4478-af95-ce9a3fd7d103

@@ -1,15 +1,24 @@
 FROM --platform=linux/amd64 node:18
-FROM --platform=linux/arm64 node:18
+# Set working directory for backend
+WORKDIR /app/backend
 
-# Creating the working directory named `app`
-WORKDIR /app
-
-# Copying all the tools and dependencies in the package.json file to the working directory `app`
-COPY package*.json/ /app/
-
-#Installing all the tools and dependencies in the container
+# Install backend dependencies
+COPY ./backend/package.json ./backend/package-lock.json ./
 RUN npm install
-COPY . .
+
+# Copy backend source code
+COPY ./backend .
+
+
+# Set working directory for frontend
+WORKDIR /app/frontend
+
+# Install frontend dependencies
+COPY ./frontend/package.json ./frontend/package-lock.json ./
+RUN npm install
+
+# Copy frontend source code
+COPY ./frontend .
 
 EXPOSE 3000
 
