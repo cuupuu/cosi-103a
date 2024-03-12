@@ -12,7 +12,7 @@ permissions:
 
 
 jobs:
-  test-sprint4:
+  test-sprint5:
     runs-on: ubuntu-latest
 
     steps:
