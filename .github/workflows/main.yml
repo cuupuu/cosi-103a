@@ -1,0 +1,53 @@
+name: Test-Sprint5
+run-name: ${{ github.actor }} is testing sprint 5
+
+on: 
+  pull_request:
+    branches: 
+      - main
+
+permissions:
+  id-token: write
+  contents: read
+
+
+jobs:
+  test-sprint4:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Install dependencies
+        run: npm install
+        working-directory: src
+      
+      - name: Run tests
+        run: npm test
+        working-directory: src
+
+  deploy-infra:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Use the azure/login@v1 action to connect to Azure with the created secrets
+      - name: Log into Azure
+        uses: azure/login@v1
+        with:
+          client-id: cdf15b8f-e8bc-4478-af95-ce9a3fd7d103
+          tenant-id: 02e496e0-bb8f-4ec3-bf4d-6e3cd4bd4ba4
+          subscription-id: ffc52f45-ea26-4ffd-ba5b-b79c1134abc3
+      
+      - name: Build and deploy Container App
+        uses: azure/container-apps-deploy-action@v1
+        with:
+          appSourcePath:  ${{ github.workspace }}/src
+          acrName: cosi103a
+          containerAppName: mcdonalds
+          resourceGroup: myResourceGroup
