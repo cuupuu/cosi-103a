@@ -1,60 +1,52 @@
 # Introduction of Mcdonalds' Menu APP
-This application serves as a convenient platform for customers to place orders.
 
-The navigation bar features essential links for easy access, including options for the 'Home' and 'Contact' pages, along with a dropdown menu dedicated to showcasing our diverse range of recipes and a menu which can show and close the grocery list.
-
-The 'Home' page presents an enticing array of our specialties. Users can explore further by clicking on the 'View Details' button to discover comprehensive recipes, complete with ingredient lists and step-by-step instructions.
-
-On the 'Contact' page, visitors will find a concise introduction to our dedicated team, providing a personal touch to our service.
-
-Users can add, remove, and clear ingredients in the grocery list by input the name of the ingredients and the list will persist when users visit other pages of our website app.
+The McDonald's Menu app is a convenient platform for customers to explore recipes, place orders, and manage their grocery lists. It offers a diverse range of recipes, a user-friendly interface, and a personalized experience for each visitor.
 
 # Getting Started with Mcdonalds' Menu APP
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Author    
-Ruixue Gou  
-Yuting Xing  
-Chupei Yan        
+This project was built using React for the frontend and Express for the backend.
+
+## Author
+
+Ruixue Gou
+Yuting Xing
+Chupei Yan
 Yenyi Lee
 
+## Features
 
-## Available Scripts
+* **Browse Recipes** : Users can explore a variety of recipes showcased on the landing page.
+* **Detailed Recipe Pages** : Each recipe has its own page with comprehensive information, including ingredients, cooking mode, and step-by-step instructions.
+* **User-Friendly Navigation** : The navigation bar offers easy access to essential links, such as Home, Add Recipe, and Contact pages, enhancing user experience.
+* **Recipe Submission** : Users can contribute to the app by submitting their own recipes through the 'Add Recipe' page, fostering community engagement and expanding the recipe collection.
+* **Grocery List Management** : Conveniently manage grocery lists by adding, removing, and clearing ingredients, ensuring users have everything they need for their chosen recipes.
+* **Meet the Team** : The Contact page provides insight into the dedicated team behind the app, offering a personal touch and fostering trust with users.
 
-[](https://github.com/cuupuu/cosi-103a/blob/main/README.md#available-scripts)
+## Prerequisites
 
-In the project directory, you can run:
+Before running this application, make sure you have the following installed:
 
-### `npm install`
+- Node.js and npm (Node Package Manager)
 
-[](https://github.com/cuupuu/cosi-103a/blob/main/README.md#npm-install)
+## Getting Started
 
-Install node_modules before testing
+Toget started with the McDonald's Menu app, follow these steps:
 
-### `npm test`
+1. Clone this repository
+3. Navigate to the project directory
+4. Install dependencies for both frontend and backend:
 
-[](https://github.com/cuupuu/cosi-103a/blob/main/README.md#npm-test)
+   cd frontend
+   npm install
 
-Launches the test runner in the interactive watch mode.
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+   cd ../backend
+   npm install
+5. Start the server:
 
-### `npm run build`
+   cd frontend
+   npm start
+6. Access the application in your web browser at `http://localhost:3000`.
 
-[](https://github.com/cuupuu/cosi-103a/blob/main/README.md#npm-run-build)
+## Contributing
 
-Builds the app for production to the `build` folder.
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm start`
-
-
-Runs the app in the development mode.
-Open [http://localhost:3000](http://localhost:5001/) to view it in your browser.
-
-The page will reload when you make changes.
-You may also see any lint errors in the console.
+Contributions are welcome! If you have any suggestions, bug reports, or feature requests, please open an issue or submit a pull request.
