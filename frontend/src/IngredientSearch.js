@@ -8,7 +8,8 @@ const IngredientSearch = ({ ingredient }) => {
     const searchIngredientFDCID = async () => {
         setIsSearching(true);
 
-        const apiKey = FDC_API_KEY; // Using the environment variable
+        const apiKey = process.env.FDC_API_KEY; // Using the environment variable
+        console.log(`https://api.nal.usda.gov/fdc/v1/foods/search?query=${encodeURIComponent(ingredient)}&api_key=${apiKey}`);
 
         try {
             const response = await fetch(`https://api.nal.usda.gov/fdc/v1/foods/search?query=${encodeURIComponent(ingredient)}&api_key=${apiKey}`);
