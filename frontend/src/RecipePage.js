@@ -4,6 +4,8 @@ import Header from './Header';
 import { useGroceryList } from './GroceryListContext';
 import { RecipeContext } from './recipeContext';
 import './RecipePage.css';
+import IngredientSearch from './IngredientSearch';
+
 
 export function RecipePage() {
     const { id } = useParams();
@@ -15,6 +17,7 @@ export function RecipePage() {
     const handleAddToGroceryList = (ingredient) => {
         addIngredient(ingredient);
     };
+
 
     return (
         <div>
@@ -28,10 +31,11 @@ export function RecipePage() {
                     <h3>Ingredients</h3>
                     <ul>
                         {recipe.ingredients.map((ingredient, index) => (
-                            <li className="recipe-list" key={index}>
-                                <button className="add-btn" onClick={() => handleAddToGroceryList(ingredient)}>+</button>
-                                {ingredient}
-                            </li>
+                        <li key={index} className="recipe-list">
+                            <button className="add-btn" onClick={() => handleAddToGroceryList(ingredient)}>+</button>{ingredient}
+                            {/* Use the IngredientSearch component for each ingredient */}
+                            <IngredientSearch ingredient={ingredient} />
+                        </li>
                         ))}
                     </ul>
                     <h3>Instructions</h3>
