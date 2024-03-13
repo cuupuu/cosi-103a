@@ -1,16 +1,61 @@
-name: test-sprint1
-run-name: ${{ github.actor }} is testing sprint 1
+name: Test-Sprint6
+run-name: ${{ github.actor }} is testing sprint 6
+
 on: 
   pull_request:
     branches: 
       - main
+
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
-  test-sprint1:
+  test-sprint5:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: '14'
-      - run: npm test
-        working-directory: ./Sprint1/mcdonalds
+          node-version: '20'
+      
+      - name: Install dependencies
+        run: npm install
+        working-directory: ./frontend
+
+      
+      - name: Run tests
+        run: npm test
+        working-directory: ./frontend/src
+
+  deploy-infra:
+    runs-on: ubuntu-latest
+    needs: test-sprint5
+    environment: 
+      name: deployment
+    steps:
+      # This step logs into Azure using the secrets set in the GitHub repository settings or environment settings
+      - name: Log into Azure
+        uses: azure/login@v1
+        with:
+          client-id: cdf15b8f-e8bc-4478-af95-ce9a3fd7d103
+          tenant-id: 02e496e0-bb8f-4ec3-bf4d-6e3cd4bd4ba4
+          subscription-id: ffc52f45-ea26-4ffd-ba5b-b79c1134abc3
+      
+      # Assuming the API key is needed during this deployment step, it's set as an environment variable
+      - name: Set up API key
+        run: echo "FDC_API_KEY=${{ secrets.FDC_API_KEY }}" >> $GITHUB_ENV
+      
+      - name: Build and deploy Container App
+        uses: azure/container-apps-deploy-action@v1
+        with:
+          appSourcePath: ${{ github.workspace }}/src
+          acrName: cosi103a
+          containerAppName: mcdonalds
+          resourceGroup: myResourceGroup
+          environmentVariables: |
+            FDC_API_KEY=${{ secrets.FDC_API_KEY }}
