@@ -45,8 +45,10 @@ Toget started with the McDonald's Menu app, follow these steps:
 
    cd frontend
    npm start
-6. Access the application in your web browser at `http://localhost:3000`.
+
+6. Access the application in your web browser at `http://localhost:5005`.
 
 ## Contributing
 
 Contributions are welcome! If you have any suggestions, bug reports, or feature requests, please open an issue or submit a pull request.
+
