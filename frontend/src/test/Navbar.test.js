@@ -5,8 +5,8 @@ jest.mock('./GroceryList', () => () => <div>Mocked Grocery List</div>);
 import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
-import Navbar from './Navbar';
-import { RecipeContext } from './recipeContext';
+import Navbar from '../js/Navbar';
+import { RecipeContext } from '../js/recipeContext';
 
 // Define your mock recipes and context provider as before
 const mockRecipes = [

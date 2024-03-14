@@ -2,7 +2,7 @@ import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import { Home } from './LandingPage';
-import { RecipeContext } from './recipeContext';
+import { RecipeContext } from '../js/recipeContext';
 
 // Mock useNavigate
 const mockedNavigate = jest.fn();

@@ -1,8 +1,8 @@
 import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import { RecipePage } from './RecipePage';
-import { RecipeContext } from './recipeContext';
+import { RecipePage } from '../js/RecipePage';
+import { RecipeContext } from '../js/recipeContext';
 import * as GroceryListContext from './GroceryListContext';
 
 // Mock useParams hook

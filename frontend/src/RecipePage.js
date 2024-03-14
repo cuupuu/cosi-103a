@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Header from './Header';
 import { useGroceryList } from './GroceryListContext';
@@ -14,6 +14,8 @@ export function RecipePage() {
     console.log('recipe:',recipe);
 
     const { addIngredient } = useGroceryList();
+    // const [foodDetails, setFoodDetails] = useState(null);
+
     const handleAddToGroceryList = (ingredient) => {
         addIngredient(ingredient);
     };
@@ -27,7 +29,6 @@ export function RecipePage() {
                 <div className="recipe-content">
                     <h1 className='recipe-title'>{recipe.title}</h1>
                     <h3>{recipe.description}</h3>
-                    <hr></hr>
                     <h3>Ingredients</h3>
                     <ul>
                         {recipe.ingredients.map((ingredient, index) => (
@@ -35,6 +36,7 @@ export function RecipePage() {
                             <button className="add-btn" onClick={() => handleAddToGroceryList(ingredient)}>+</button>{ingredient}
                             {/* Use the IngredientSearch component for each ingredient */}
                             <IngredientSearch ingredient={ingredient} />
+
                         </li>
                         ))}
                     </ul>
@@ -56,4 +58,5 @@ export function RecipePage() {
             </div>
         </div>
     );
+
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
-import GroceryList from './GroceryList';
-import { useGroceryList } from './GroceryListContext';
+import GroceryList from '../js/GroceryList';
+import { useGroceryList } from '../js/GroceryListContext';
 
 jest.mock('./GroceryListContext', () => ({
   useGroceryList: jest.fn(),
