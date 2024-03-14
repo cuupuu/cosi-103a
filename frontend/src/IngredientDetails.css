@@ -1,0 +1,23 @@
+.ingredient-container {
+    margin: 35px;
+}
+
+.ingredient-title {
+    color: black;
+    font-size: 45px;
+}
+
+.ingredient-subtitle{
+    color: #DA291C;
+    font-size: 30px;
+    margin-top: 10px;
+    text-align: left;
+}
+
+.ingredient-ul {
+    list-style-type: none;
+}
+
+.ingredient-li {
+    color: gray;
+}
