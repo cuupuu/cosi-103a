@@ -1,8 +1,8 @@
 import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
-import { Home } from './LandingPage';
-import { RecipeContext } from '../js/recipeContext';
+import { Home } from '../LandingPage';
+import { RecipeContext } from '../recipeContext';
 
 // Mock useNavigate
 const mockedNavigate = jest.fn();
@@ -12,7 +12,7 @@ jest.mock('react-router-dom', () => ({
 }));
 
 // Mock Header
-jest.mock('./Header', () => () => <div>Header Mock</div>);
+jest.mock('../Header', () => () => <div>Header Mock</div>);
 
 describe('Home', () => {
   it('renders correctly with recipes', () => {

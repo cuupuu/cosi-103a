@@ -2,8 +2,8 @@ import React from 'react';
 import { render, fireEvent, screen, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { BrowserRouter } from 'react-router-dom';
-import AddRecipe from './AddRecipePage';
-import { RecipeContext } from '../js/recipeContext';
+import AddRecipe from '../AddRecipePage';
+import { RecipeContext } from '../recipeContext';
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),

@@ -1,10 +1,10 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Header from './Header';
+import Header from '../Header';
 
 // Mock the Navbar component to isolate the test to Header functionality
-jest.mock('./Navbar', () => ({
+jest.mock('../Navbar', () => ({
   // Mock Navbar with a button to simulate toggle functionality
   __esModule: true,
   default: ({ toggleGroceryList, src }) => (
