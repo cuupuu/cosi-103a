@@ -1,5 +1,5 @@
-name: Test-Sprint5
-run-name: ${{ github.actor }} is testing sprint 5
+name: Test-Sprint6
+run-name: ${{ github.actor }} is testing sprint 6
 
 on: 
   pull_request:
@@ -39,6 +39,5 @@ jobs:
           name: test-results
           path: ./frontend/src/__tests__/coverage/lcov-report
 
-      
-```     
+    
         
