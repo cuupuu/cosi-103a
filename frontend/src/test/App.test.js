@@ -2,14 +2,14 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
-import App from './App';
-import recipes from './Recipe';
+import App from '../App';
+import recipes from '../Recipe';
 
 // Mock components to simplify testing
-jest.mock('./Layout', () => ({ children }) => <div>Layout Component {children}</div>);
-jest.mock('./LandingPage', () => ({ Home: () => <div>Home Component</div> }));
-jest.mock('./RecipePage', () => ({ RecipePage: () => <div>RecipePage Component</div> }));
-jest.mock('./Contact', () => () => <div>Contact Component</div>);
+jest.mock('../Layout', () => ({ children }) => <div>Layout Component {children}</div>);
+jest.mock('../LandingPage', () => ({ Home: () => <div>Home Component</div> }));
+jest.mock('../RecipePage', () => ({ RecipePage: () => <div>RecipePage Component</div> }));
+jest.mock('../Contact', () => () => <div>Contact Component</div>);
 
 describe('App', () => {
   it('renders the Home component on the root route', () => {

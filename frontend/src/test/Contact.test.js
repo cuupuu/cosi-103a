@@ -1,9 +1,9 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import Contact from './Contact';
+import Contact from '../Contact';
 
 // Mock the Header component to simplify testing
-jest.mock('./Header', () => {
+jest.mock('../Header', () => {
     return ({title}) => <div>{title}</div>;
 });
 

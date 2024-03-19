@@ -1,6 +1,6 @@
 import { render, act } from '@testing-library/react';
 import React from 'react';
-import { GroceryListProvider, useGroceryList } from './GroceryListContext';
+import { GroceryListProvider, useGroceryList } from '../GroceryListContext';
 
 // Helper component to test the useGroceryList hook
 const GroceryListConsumer = () => {
