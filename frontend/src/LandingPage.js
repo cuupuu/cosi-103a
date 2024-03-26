@@ -24,7 +24,7 @@ export const Home = () => {
             <main>
                 <div className="recipe-grid">
                     {recipes.map((recipe) => (
-                        <div className='recipe-card'>
+                        <div className='recipe-card' key={recipe.index}>
                             <h2>{recipe.title}</h2>
                             <img src={recipe.image} alt={`Picture of ${recipe.title}`} />
                             <p className="description">{recipe.description}</p>

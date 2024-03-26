@@ -8,8 +8,10 @@ export const RecipeProvider = ({ children }) => {
   useEffect(() => {
     const fetchRecipes = async () => {
       const response = await fetch('/api/recipes');
+      console.log("hello");
       if (response.ok) {
         const recipes = await response.json();
+        console.log(recipes);
         setRecipes(recipes);
       }
     };
