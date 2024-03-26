@@ -4,7 +4,7 @@ The McDonald's Menu app is a convenient platform for customers to explore recipe
 
 # Getting Started with Mcdonalds' Menu APP
 
-This project was built using React for the frontend and Express for the backend.
+This project was built using React for the frontend, Express for the backend and Cosmos DB for the database.
 
 ## Author
 
@@ -33,19 +33,19 @@ Before running this application, make sure you have the following installed:
 Toget started with the McDonald's Menu app, follow these steps:
 
 1. Clone this repository
-3. Navigate to the project directory
-4. Install dependencies for both frontend and backend:
+2. Navigate to the project directory
+3. Install dependencies for both frontend and backend:
 
    cd frontend
    npm install
 
    cd ../backend
    npm install
-5. Start the server:
+4. Start the server:
 
    cd frontend
    npm start
-6. Access the application in your web browser at `http://localhost:3000`.
+5. Access the application in your web browser at `http://localhost:3000`.
 
 ## Contributing
 

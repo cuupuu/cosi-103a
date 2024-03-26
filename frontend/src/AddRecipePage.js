@@ -53,18 +53,17 @@ function AddRecipe() {
       return alert('Invalid JSON');
     }
     
-    fetch('/api/recipes', {
+    fetch('/api/addRecipes', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(recipe),
     })
-    .then(response => {
+    .then(async response => {
       if (!response.ok) {
-        return response.text().then(error =>{
+        const error = await response.text();
         throw new Error(error);
-      });
     }
       const clone = response.clone(); // Clone the response
       clone.text().then(text => console.log('Response text:', text)); // Log the raw response text

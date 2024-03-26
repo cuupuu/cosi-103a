@@ -13,6 +13,8 @@ const IngredientSearch = ({ ingredient }) => {
     const searchIngredientFDCID = async () => {
         setIsSearching(true);
         const apiKey = process.env.REACT_APP_API_KEY; // This should be set in your serverless function's environment variables
+        console.log("APIkey",apiKey);
+        
 
         try {
             const response = await fetch(`https://api.nal.usda.gov/fdc/v1/foods/search?query=${encodeURIComponent(ingredient)}&api_key=${apiKey}`);
