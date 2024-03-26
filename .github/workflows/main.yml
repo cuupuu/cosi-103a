@@ -1,5 +1,7 @@
-name: Test-Sprint5
-run-name: ${{ github.actor }} is testing sprint 5
+
+name: Test-Sprint7
+run-name: ${{ github.actor }} is testing sprint 7
+
 
 on: 
   pull_request:
@@ -27,16 +29,17 @@ jobs:
       - name: Install dependencies
         run: npm install
         working-directory: ./frontend
-
+        env:
+          API_KEY: ${{ secrets.API_KEY }} # Access the API key from GitHub Secret
       
       - name: Run tests
         run: npm test
         working-directory: ./frontend/src
+        env:
+          API_KEY: ${{ secrets.API_KEY }} # Access the API key from GitHub Secret
 
       - name: Upload test results
         uses: actions/upload-artifact@v2
         with:
           name: test-results
           path: ./frontend/src/__tests__/coverage/lcov-report
-
-        

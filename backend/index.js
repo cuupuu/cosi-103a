@@ -13,8 +13,9 @@ app.use(bodyParser.json());
 
 // Azure Cosmos DB
 const {CosmosClient} = require("@azure/cosmos");
-const key = "4FXjbKYEpftu2BXEkvw2HU4Xqe7rxb4D2s85xwraqTJ5gOlp8U8XCjImY2wGqEHB2jnkIPSSKEFOACDbBKz0Hg=="
-const endpoint = "https://sprint7.documents.azure.com:443/"
+require('dotenv').config();
+const key = process.env.COSMOS_DB_KEY;
+const endpoint = process.env.COSMOS_DB_ENDPOINT;
 const databaseName = "mcdonalds"
 const containerName = "recipes"
 
