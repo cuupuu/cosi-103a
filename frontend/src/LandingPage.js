@@ -12,11 +12,6 @@ export const Home = () => {
     const goToRecipePage = (index) => {
         navigate(`/recipe/${index}`);
     };
-
-      // Check if recipes is defined and is an array before trying to map over it
-      if (recipes.length === 0) {
-        return <div>No recipes to display</div>;
-      }
       
     return (
         <div>
