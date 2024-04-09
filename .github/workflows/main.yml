@@ -89,6 +89,8 @@ jobs:
           node-version: '20'
       
       # Install any dependencies required for your smoke tests here
+      - name: Install Dependencies
+        run: npm install
       
       - name: Run Smoke Tests
         run: 
