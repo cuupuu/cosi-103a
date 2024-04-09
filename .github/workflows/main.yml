@@ -102,6 +102,6 @@ jobs:
       - name: Switch traffic to new version
         run: |
           az webapp traffic-routing set \
-          -- distribution: production=100 \ 
+          --distribution production=100 \
           --name mcdonalds \
           --resource-group myResourceGroup  
