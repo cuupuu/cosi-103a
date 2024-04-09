@@ -97,8 +97,12 @@ jobs:
         run: 
           npm run smoke-test
         working-directory: ./frontend
-
-      # Switch Traffic 
+  
+  # Switch Traffic 
+  traffic-switch:
+    needs: smoke-test
+    runs-on: ubuntu-latest
+    steps:
       - name: Azure login
         run: az login
         # uses: azure/login@v1
