@@ -91,5 +91,6 @@ jobs:
       # Install any dependencies required for your smoke tests here
       
       - name: Run Smoke Tests
-        run: |
+        run: 
           npm run smoke-test
+        working-directory: ./frontend
