@@ -1,5 +1,5 @@
-name: Test-Sprint7
-run-name: ${{ github.actor }} is testing sprint 7
+name: Test-Sprint8
+run-name: ${{ github.actor }} is testing sprint 8
 
 
 on: 
@@ -120,12 +120,10 @@ jobs:
 
     - name: Switch traffic to new version
       run: |
-        az containerapp traffic-routing set \
+        az containerapp ingress traffic set 
         --name mcdonalds \
         --resource-group myResourceGroup \
-        --subscription ffc52f45-ea26-4ffd-ba5b-b79c1134abc3 \
-        --distribution production=100
-
+        --revision-weight <blue>=50 <green>=50
 
 
         # az webapp traffic-routing set \
