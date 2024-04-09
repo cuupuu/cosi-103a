@@ -106,10 +106,10 @@ jobs:
         #   client-id: cdf15b8f-e8bc-4478-af95-ce9a3fd7d103
         #   tenant-id: 02e496e0-bb8f-4ec3-bf4d-6e3cd4bd4ba4
         #   subscription-id: ffc52f45-ea26-4ffd-ba5b-b79c1134abc3
+      
 
       - name: Switch traffic to new version
         run: |
           az webapp traffic-routing set \
           --distribution staging=100 \
-          --name mcdonalds \
-          --resource-group myResourceGroup  
+          --ids "/subscriptions/ffc52f45-ea26-4ffd-ba5b-b79c1134abc3/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/mcdonalds" \
