@@ -104,7 +104,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Azure login
-        run: az login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      # - name: Azure login
+      #   run: az login
+
+
         # uses: azure/lgin@v1
         # with:
         #   client-id: cdf15b8f-e8bc-4478-af95-ce9a3fd7d103
