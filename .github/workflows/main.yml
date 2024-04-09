@@ -101,6 +101,7 @@ jobs:
   traffic-switch:
     needs: smoke-test
     runs-on: ubuntu-latest
+    environment: prd 
     steps:
     - name: Log into Azure
       uses: azure/login@v1
