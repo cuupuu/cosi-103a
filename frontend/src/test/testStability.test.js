@@ -1,3 +1,8 @@
+jest.mock('react-dom', () => ({
+  ...jest.requireActual('react-dom'), // use actual for all non-hook parts
+  createRoot: () => ({ render: jest.fn() }), // override createRoot
+}));
+
 const request = require('supertest');
 const server = require('../index'); // adjust the path as needed
 
@@ -10,8 +15,6 @@ describe('App', () => {
     expect(screen.getByText('Hello, world!')).toBeInTheDocument();
   });
 });
-
-
 // const chai = require('chai');
 // const chaiHttp = require('chai-http');
 // const server = require('../index'); // adjust the path as needed
