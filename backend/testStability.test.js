@@ -4,10 +4,10 @@ jest.mock('react-dom', () => ({
 }));
 
 const request = require('supertest');
-const server = require('../index'); // adjust the path as needed
+const server = require('../frontend/src/index'); // adjust the path as needed
 
 import { render, screen } from '@testing-library/react';
-import App from '../App'; // adjust the path as needed
+import App from '../frontend/src/App'; // adjust the path as needed
 
 describe('App', () => {
   it('renders without crashing', () => {
