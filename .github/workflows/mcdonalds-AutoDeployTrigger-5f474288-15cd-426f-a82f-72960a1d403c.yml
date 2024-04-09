@@ -1,0 +1,47 @@
+name: Trigger auto deployment for mcdonalds
+
+# When this action will be executed
+on:
+  # Automatically trigger it when detected changes in repo
+  push:
+    branches: 
+      [ main ]
+    paths:
+    - '**'
+    - '.github/workflows/mcdonalds-AutoDeployTrigger-5f474288-15cd-426f-a82f-72960a1d403c.yml'
+
+  # Allow manual trigger 
+  workflow_dispatch:      
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions: 
+      id-token: write #This is required for requesting the OIDC JWT Token
+      contents: read #Required when GH token is used to authenticate with private repo
+
+    steps:
+      - name: Checkout to the branch
+        uses: actions/checkout@v2
+
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.MCDONALDS_AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.MCDONALDS_AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.MCDONALDS_AZURE_SUBSCRIPTION_ID }}
+
+      - name: Build and push container image to registry
+        uses: azure/container-apps-deploy-action@v2
+        with:
+          appSourcePath: ${{ github.workspace }} 
+          registryUrl: cosi103a.azurecr.io
+          registryUsername: ${{ secrets.MCDONALDS_REGISTRY_USERNAME }}
+          registryPassword: ${{ secrets.MCDONALDS_REGISTRY_PASSWORD }}
+          containerAppName: mcdonalds
+          resourceGroup: myResourceGroup
+          imageToBuild: cosi103a.azurecr.io/mcdonalds:${{ github.sha }}
+          _buildArgumentsKey_: |
+            _buildArgumentsValues_
+
+
