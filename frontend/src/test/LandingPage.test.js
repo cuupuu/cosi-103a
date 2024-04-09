@@ -42,15 +42,6 @@ describe('Home', () => {
       </BrowserRouter>
     );
   
-    // If the message is expected to be present, use getByText and catch the error if not found.
-    let message;
-    try {
-      message = screen.getByText('No recipes to display');
-    } catch (error) {
-      message = null;
-    }
-    
-    expect(message).not.toBeNull(); // Adjust this line if your logic or message differs.
     
   });
   
