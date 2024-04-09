@@ -128,6 +128,6 @@ jobs:
 
 
 
-        az webapp traffic-routing set \
-        --distribution production=100 \
-        --ids "/subscriptions/ffc52f45-ea26-4ffd-ba5b-b79c1134abc3/resourceGroups/myResourceGroup/providers/Microsoft.App/containerApps/mcdonalds" 
+        # az webapp traffic-routing set \
+        # --distribution production=100 \
+        # --ids "/subscriptions/ffc52f45-ea26-4ffd-ba5b-b79c1134abc3/resourceGroups/myResourceGroup/providers/Microsoft.App/containerApps/mcdonalds" 
