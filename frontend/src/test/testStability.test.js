@@ -12,7 +12,7 @@ import App from '../App'; // adjust the path as needed
 describe('App', () => {
   it('renders without crashing', () => {
     render(<App />);
-    expect(screen.getByText('Hello, world!')).toBeInTheDocument();
+    expect(screen.getByText("McDonald's Menu")).toBeInTheDocument();
   });
 });
 // const chai = require('chai');
