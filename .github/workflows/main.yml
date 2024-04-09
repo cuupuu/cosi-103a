@@ -62,9 +62,9 @@ jobs:
       - name: Log into Azure
         uses: azure/login@v1
         with:
-          client-id: cdf15b8f-e8bc-4478-af95-ce9a3fd7d103
-          tenant-id: 02e496e0-bb8f-4ec3-bf4d-6e3cd4bd4ba4
-          subscription-id: ffc52f45-ea26-4ffd-ba5b-b79c1134abc3
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
   
       - name: Build and deploy Container App
         uses: azure/container-apps-deploy-action@v1
@@ -129,6 +129,6 @@ jobs:
 
 
 
-  #         # az webapp traffic-routing set \
-  #         # --distribution production=100 \
-  #         # --ids "/subscriptions/ffc52f45-ea26-4ffd-ba5b-b79c1134abc3/resourceGroups/myResourceGroup/providers/Microsoft.App/containerApps/mcdonalds" 
+        az webapp traffic-routing set \
+        --distribution production=100 \
+        --ids "/subscriptions/ffc52f45-ea26-4ffd-ba5b-b79c1134abc3/resourceGroups/myResourceGroup/providers/Microsoft.App/containerApps/mcdonalds" 
