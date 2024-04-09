@@ -72,3 +72,4 @@ jobs:
           acrName: cosi103a
           containerAppName: mcdonalds
           resourceGroup: myResourceGroup 
+          dockerfilePath: dockerfile.Dockerfile
