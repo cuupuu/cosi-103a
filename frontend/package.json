@@ -13,7 +13,8 @@
     "react-bootstrap": "^2.10.1",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.21.3",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "chai": "^5.1.0"
   },
   "scripts": {
     "start-client": "react-scripts start",
