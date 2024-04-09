@@ -48,7 +48,7 @@ jobs:
   build-and-deploy:
     needs: test  # Ensures this job runs only after the test-sprint4 job completes successfully.
     runs-on: ubuntu-latest
-    environment: prd
+    environment: prd 
 
     steps:
       - name: Checkout code
@@ -99,9 +99,16 @@ jobs:
         working-directory: ./frontend
   
   # Switch Traffic 
-  # traffic-switch:
-  #   needs: smoke-test
-  #   runs-on: ubuntu-latest
+  traffic-switch:
+    needs: smoke-test
+    runs-on: ubuntu-latest
+    steps:
+    - name: Azure login
+      uses: azure/login@v1
+      with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
   #   steps:
   #     # - name: Azure login
   #     #   uses: azure/login@v1
