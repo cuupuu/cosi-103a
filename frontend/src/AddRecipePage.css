@@ -2,6 +2,7 @@
 
 .add-recipe-h1 {
     color: black;
+    margin-left: 25%;
   }
   
   .add-recipe-container {
@@ -19,6 +20,7 @@
       flex-direction: column;
       width: 50%;
       margin-top: 20px;
+      margin-left: 25%
     }
     
     .add-recipe-form input,
@@ -27,6 +29,7 @@
       margin-bottom: 10px;
       border: 1px solid #ced4da;
       border-radius: 4px;
+      font-size: larger;
     }
     
     .add-recipe-form button {
