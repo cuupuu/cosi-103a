@@ -1,6 +1,6 @@
 
-name: Test-Sprint7
-run-name: ${{ github.actor }} is testing sprint 7
+name: Test-Sprint8
+run-name: ${{ github.actor }} is testing sprint 8
 
 
 on: 
@@ -73,3 +73,26 @@ jobs:
           containerAppName: mcdonalds
           resourceGroup: myResourceGroup 
           dockerfilePath: dockerfile.Dockerfile
+
+# Smoke test
+  smoke-test:
+    needs: build-and-deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      # Install any dependencies required for your smoke tests here
+      - name: Install Dependencies
+        run: npm install
+      
+      - name: Run Smoke Tests
+        run: 
+          npm run smoke-test
+        working-directory: ./frontend
